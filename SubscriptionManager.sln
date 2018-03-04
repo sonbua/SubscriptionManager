@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2", "R2\R2.csproj", "{86B6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.DependencyRegistration.Autofac", "R2.DependencyRegistration.Autofac\R2.DependencyRegistration.Autofac.csproj", "{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail", "R2.Net.Mail\R2.Net.Mail.csproj", "{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
