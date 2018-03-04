@@ -1,4 +1,4 @@
-﻿namespace SubscriptionManager
+﻿namespace SubscriptionManager.Desktop
 {
     partial class Form1
     {

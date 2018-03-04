@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace SubscriptionManager
+namespace SubscriptionManager.Desktop
 {
     public partial class Form1 : Form
     {

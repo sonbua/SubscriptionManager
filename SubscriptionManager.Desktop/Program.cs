@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 using SubscriptionManager.CompositionRoot;
 
-namespace SubscriptionManager
+namespace SubscriptionManager.Desktop
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
