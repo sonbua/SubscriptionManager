@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
 using R2.Aspect.Validation;
 using Raven.Client;
+using SubscriptionManager.Subscriptions.SetExpired.Exception;
 
-namespace SubscriptionManager.Subscriptions.SetExpired
+namespace SubscriptionManager.Subscriptions.SetExpired.Rule
 {
     public class SubscriptionMustExistRule : IValidationRule<SetExpiredCommand>
     {

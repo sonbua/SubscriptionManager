@@ -1,8 +1,7 @@
-using System;
 using System.Runtime.Serialization;
 using R2;
 
-namespace SubscriptionManager.Subscriptions.SetExpired
+namespace SubscriptionManager.Subscriptions.SetExpired.Exception
 {
     public class SubscriptionMustExistException : R2Exception
     {
@@ -15,7 +14,7 @@ namespace SubscriptionManager.Subscriptions.SetExpired
         {
         }
 
-        public SubscriptionMustExistException(string message, Exception innerException)
+        public SubscriptionMustExistException(string message, System.Exception innerException)
             : base(message, innerException)
         {
         }
