@@ -4,7 +4,7 @@ namespace SubscriptionManager.Subscriptions
 {
     public class Subscription
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string FullName { get; set; }
 
@@ -13,5 +13,7 @@ namespace SubscriptionManager.Subscriptions
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
+
+        public bool IsDeleted { get; set; } = false;
     }
 }

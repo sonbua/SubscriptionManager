@@ -53,6 +53,11 @@
     <Compile Include="AddSubscription\Rule\DurationInMonthsMustBeGreaterThanOrEqualTo1Rule.cs" />
     <Compile Include="AddSubscription\Exception\EndDateMustBeInTheFutureException.cs" />
     <Compile Include="AddSubscription\Rule\EndDateMustBeInTheFutureRule.cs" />
+    <Compile Include="SetExpired\SetExpiredCommand.cs" />
+    <Compile Include="SetExpired\SetExpiredCommandHandler.cs" />
+    <Compile Include="SetExpired\SetExpiredCommandValidator.cs" />
+    <Compile Include="SetExpired\Exception\SubscriptionMustExistException.cs" />
+    <Compile Include="SetExpired\Rule\SubscriptionMustExistRule.cs" />
     <Compile Include="Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
