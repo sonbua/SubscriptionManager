@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DC4AF6C-D33A-415D-8E66-D8FD65DCBAE3}</ProjectGuid>
+    <ProjectGuid>{95965C9B-51F3-40D9-A45C-CBC830FB1A96}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>R2.Net.Mail</RootNamespace>
-    <AssemblyName>R2.Net.Mail</AssemblyName>
+    <RootNamespace>R2.Net.Mail.SystemNetSmtp</RootNamespace>
+    <AssemblyName>R2.Net.Mail.SystemNetSmtp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,21 +32,18 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMailService.cs" />
-    <Compile Include="MailAddress.cs" />
-    <Compile Include="MailAddressCollection.cs" />
-    <Compile Include="MailAttachment.cs" />
-    <Compile Include="MailAttachmentCollection.cs" />
-    <Compile Include="MailMessage.cs" />
+    <Compile Include="ISystemNetSmtpMailServiceSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemNetSmtpMailService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R2.Net.Mail\R2.Net.Mail.csproj">
+      <Project>{1dc4af6c-d33a-415d-8e66-d8fd65dcbae3}</Project>
+      <Name>R2.Net.Mail</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
