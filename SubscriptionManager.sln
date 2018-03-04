@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager", "Subs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2", "R2\R2.csproj", "{86B6B3D4-08CF-4644-B415-15D5B44AC169}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.DependencyRegistration.Autofac", "R2.DependencyRegistration.Autofac\R2.DependencyRegistration.Autofac.csproj", "{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
