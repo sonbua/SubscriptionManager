@@ -91,10 +91,6 @@
       <Project>{7771e669-c5c4-4c66-a693-baf1fd098308}</Project>
       <Name>SubscriptionManager.CompositionRoot</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj">
-      <Project>{3f34a340-6cf6-48c5-ac40-0262d74a7b29}</Project>
-      <Name>SubscriptionManager.DependencyRegistration.Autofac</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
