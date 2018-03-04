@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using R2.Net.Mail.SystemNetSmtp;
 
-namespace SubscriptionManager
+namespace SubscriptionManager.DependencyRegistration.Autofac
 {
     public class SystemNetSmtpMailServiceSettings : ISystemNetSmtpMailServiceSettings
     {

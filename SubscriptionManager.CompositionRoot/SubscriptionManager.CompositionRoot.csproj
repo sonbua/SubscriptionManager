@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{81ED5125-3306-4372-B506-54E2635633D9}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{7771E669-C5C4-4C66-A693-BAF1FD098308}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SubscriptionManager</RootNamespace>
-    <AssemblyName>SubscriptionManager</AssemblyName>
+    <RootNamespace>SubscriptionManager.CompositionRoot</RootNamespace>
+    <AssemblyName>SubscriptionManager.CompositionRoot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +23,6 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -43,58 +43,30 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Container.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="AutofacServiceProvider.cs" />
+    <Compile Include="Composition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\R2.Net.Mail.SystemNetSmtp\R2.Net.Mail.SystemNetSmtp.csproj">
-      <Project>{95965c9b-51f3-40d9-a45c-cbc830fb1a96}</Project>
-      <Name>R2.Net.Mail.SystemNetSmtp</Name>
+    <ProjectReference Include="..\R2.DependencyRegistration.Autofac\R2.DependencyRegistration.Autofac.csproj">
+      <Project>{c9c413d6-63e7-4a66-9a8e-a35ff56e1656}</Project>
+      <Name>R2.DependencyRegistration.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SubscriptionManager.CompositionRoot\SubscriptionManager.CompositionRoot.csproj">
-      <Project>{7771e669-c5c4-4c66-a693-baf1fd098308}</Project>
-      <Name>SubscriptionManager.CompositionRoot</Name>
+    <ProjectReference Include="..\R2.Net.Mail.DependencyRegistration.Autofac\R2.Net.Mail.DependencyRegistration.Autofac.csproj">
+      <Project>{a459b146-cbbd-4633-8452-69e6fc8070c9}</Project>
+      <Name>R2.Net.Mail.DependencyRegistration.Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj">
       <Project>{3f34a340-6cf6-48c5-ac40-0262d74a7b29}</Project>
       <Name>SubscriptionManager.DependencyRegistration.Autofac</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail", "R2.Net.Mail\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.SystemNetSmtp", "R2.Net.Mail.SystemNetSmtp\R2.Net.Mail.SystemNetSmtp.csproj", "{95965C9B-51F3-40D9-A45C-CBC830FB1A96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.DependencyRegistration.Autofac", "R2.Net.Mail.DependencyRegistration.Autofac\R2.Net.Mail.DependencyRegistration.Autofac.csproj", "{A459B146-CBBD-4633-8452-69E6FC8070C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.DependencyRegistration.Autofac", "SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj", "{3F34A340-6CF6-48C5-AC40-0262D74A7B29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.CompositionRoot", "SubscriptionManager.CompositionRoot\SubscriptionManager.CompositionRoot.csproj", "{7771E669-C5C4-4C66-A693-BAF1FD098308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{95965C9B-51F3-40D9-A45C-CBC830FB1A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95965C9B-51F3-40D9-A45C-CBC830FB1A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95965C9B-51F3-40D9-A45C-CBC830FB1A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A459B146-CBBD-4633-8452-69E6FC8070C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A459B146-CBBD-4633-8452-69E6FC8070C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A459B146-CBBD-4633-8452-69E6FC8070C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A459B146-CBBD-4633-8452-69E6FC8070C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F34A340-6CF6-48C5-AC40-0262D74A7B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F34A340-6CF6-48C5-AC40-0262D74A7B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F34A340-6CF6-48C5-AC40-0262D74A7B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F34A340-6CF6-48C5-AC40-0262D74A7B29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7771E669-C5C4-4C66-A693-BAF1FD098308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7771E669-C5C4-4C66-A693-BAF1FD098308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7771E669-C5C4-4C66-A693-BAF1FD098308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7771E669-C5C4-4C66-A693-BAF1FD098308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
