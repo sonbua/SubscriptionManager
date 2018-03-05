@@ -96,6 +96,32 @@
     <Content Include="Global.asax" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\app\.babelrc" />
+    <Content Include="Scripts\app\.editorconfig" />
+    <Content Include="Scripts\app\.eslintignore" />
+    <Content Include="Scripts\app\.eslintrc.js" />
+    <Content Include="Scripts\app\.gitignore" />
+    <Content Include="Scripts\app\.postcssrc.js" />
+    <Content Include="Scripts\app\build\build.js" />
+    <Content Include="Scripts\app\build\check-versions.js" />
+    <Content Include="Scripts\app\build\logo.png" />
+    <Content Include="Scripts\app\build\utils.js" />
+    <Content Include="Scripts\app\build\vue-loader.conf.js" />
+    <Content Include="Scripts\app\build\webpack.base.conf.js" />
+    <Content Include="Scripts\app\build\webpack.dev.conf.js" />
+    <Content Include="Scripts\app\build\webpack.prod.conf.js" />
+    <Content Include="Scripts\app\config\dev.env.js" />
+    <Content Include="Scripts\app\config\index.js" />
+    <Content Include="Scripts\app\config\prod.env.js" />
+    <Content Include="Scripts\app\index.html" />
+    <Content Include="Scripts\app\package.json" />
+    <Content Include="Scripts\app\README.md" />
+    <Content Include="Scripts\app\src\App.vue" />
+    <Content Include="Scripts\app\src\assets\logo.png" />
+    <Content Include="Scripts\app\src\components\HelloWorld.vue" />
+    <Content Include="Scripts\app\src\main.js" />
+    <Content Include="Scripts\app\src\router\index.js" />
+    <Content Include="Scripts\app\static\.gitkeep" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SubscriptionManager\Index.cshtml" />
@@ -105,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content" />
-    <Folder Include="Scripts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
