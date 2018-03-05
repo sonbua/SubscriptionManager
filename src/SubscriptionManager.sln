@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.SystemNetSmtp",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac", "R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac\R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac.csproj", "{A459B146-CBBD-4633-8452-69E6FC8070C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.DependencyRegistration.Autofac", "SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj", "{3F34A340-6CF6-48C5-AC40-0262D74A7B29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Services.DependencyRegistration.Autofac", "SubscriptionManager.Services.DependencyRegistration.Autofac\SubscriptionManager.Services.DependencyRegistration.Autofac.csproj", "{3F34A340-6CF6-48C5-AC40-0262D74A7B29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.CompositionRoot", "SubscriptionManager.CompositionRoot\SubscriptionManager.CompositionRoot.csproj", "{7771E669-C5C4-4C66-A693-BAF1FD098308}"
 EndProject
@@ -28,8 +28,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{BCFE69AB-560D-4C55-B77F-22647AEA2F7A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{73473133-9F10-410B-8588-5654DF20CDBE}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{768A40F0-66A6-4790-8518-58CB51F3D631}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{6CE76797-B81B-4D15-88F2-0E90E4F9756A}"
 EndProject
@@ -100,6 +98,6 @@ Global
 		{6A7C4C08-4C9A-4B63-92F7-F59E9665A887} = {6CE76797-B81B-4D15-88F2-0E90E4F9756A}
 		{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F} = {6A7C4C08-4C9A-4B63-92F7-F59E9665A887}
 		{E9926889-23A6-4CF4-AE76-413A12A0B9DE} = {6A7C4C08-4C9A-4B63-92F7-F59E9665A887}
-		{7E2BB69B-FC47-450F-B940-4A679922D6EE} = {768A40F0-66A6-4790-8518-58CB51F3D631}
+		{3F34A340-6CF6-48C5-AC40-0262D74A7B29} = {73473133-9F10-410B-8588-5654DF20CDBE}
 	EndGlobalSection
 EndGlobal
