@@ -1,7 +1,6 @@
 ﻿using Autofac;
-using R2.Net.Mail.SystemNetSmtp;
 
-namespace R2.Net.Mail.DependencyRegistration.Autofac
+namespace R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac
 {
     public class R2NetMailModule : Module
     {

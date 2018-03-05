@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail", "R2.Net.Mail\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.SystemNetSmtp", "R2.Net.Mail.SystemNetSmtp\R2.Net.Mail.SystemNetSmtp.csproj", "{95965C9B-51F3-40D9-A45C-CBC830FB1A96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.DependencyRegistration.Autofac", "R2.Net.Mail.DependencyRegistration.Autofac\R2.Net.Mail.DependencyRegistration.Autofac.csproj", "{A459B146-CBBD-4633-8452-69E6FC8070C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac", "R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac\R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac.csproj", "{A459B146-CBBD-4633-8452-69E6FC8070C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.DependencyRegistration.Autofac", "SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj", "{3F34A340-6CF6-48C5-AC40-0262D74A7B29}"
 EndProject

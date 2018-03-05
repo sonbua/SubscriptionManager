@@ -7,8 +7,8 @@
     <ProjectGuid>{A459B146-CBBD-4633-8452-69E6FC8070C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>R2.Net.Mail.DependencyRegistration.Autofac</RootNamespace>
-    <AssemblyName>R2.Net.Mail.DependencyRegistration.Autofac</AssemblyName>
+    <RootNamespace>R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac</RootNamespace>
+    <AssemblyName>R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

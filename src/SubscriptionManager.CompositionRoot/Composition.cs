@@ -1,7 +1,7 @@
 ﻿using System;
 using Autofac;
 using R2.DependencyRegistration.Autofac;
-using R2.Net.Mail.DependencyRegistration.Autofac;
+using R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac;
 using SubscriptionManager.DependencyRegistration.Autofac;
 using SubscriptionManager.Subscriptions.DependencyRegistration.Autofac;
 
