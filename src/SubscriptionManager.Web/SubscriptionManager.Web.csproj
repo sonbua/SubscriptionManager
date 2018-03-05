@@ -39,9 +39,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -74,12 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -87,11 +82,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\site.js" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
@@ -100,60 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Content\bootstrap-grid.css" />
-    <None Include="Content\bootstrap-grid.css.map" />
-    <None Include="Content\bootstrap-grid.min.css" />
-    <None Include="Content\bootstrap-grid.min.css.map" />
-    <None Include="Content\bootstrap-reboot.css" />
-    <None Include="Content\bootstrap-reboot.css.map" />
-    <None Include="Content\bootstrap-reboot.min.css" />
-    <None Include="Content\bootstrap-reboot.min.css.map" />
-    <None Include="Content\bootstrap.css" />
-    <None Include="Content\bootstrap.css.map" />
-    <None Include="Content\bootstrap.min.css" />
-    <None Include="Content\bootstrap.min.css.map" />
-    <None Include="Scripts\bootstrap.bundle.js" />
-    <None Include="Scripts\bootstrap.bundle.js.map" />
-    <None Include="Scripts\bootstrap.bundle.min.js" />
-    <None Include="Scripts\bootstrap.bundle.min.js.map" />
-    <None Include="Scripts\bootstrap.js" />
-    <None Include="Scripts\bootstrap.js.map" />
-    <None Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\bootstrap.min.js.map" />
-    <None Include="Scripts\esm\popper-utils.js" />
-    <None Include="Scripts\esm\popper-utils.js.map" />
-    <None Include="Scripts\esm\popper-utils.min.js" />
-    <None Include="Scripts\esm\popper-utils.min.js.map" />
-    <None Include="Scripts\esm\popper.js" />
-    <None Include="Scripts\esm\popper.js.map" />
-    <None Include="Scripts\esm\popper.min.js" />
-    <None Include="Scripts\esm\popper.min.js.map" />
-    <None Include="Scripts\index.d.ts" />
-    <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
-    <None Include="Scripts\jquery-3.3.1.js" />
-    <None Include="Scripts\jquery-3.3.1.min.js" />
-    <None Include="Scripts\jquery-3.3.1.min.map" />
-    <None Include="Scripts\jquery-3.3.1.slim.js" />
-    <None Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <None Include="Scripts\popper-utils.js" />
-    <None Include="Scripts\popper-utils.js.map" />
-    <None Include="Scripts\popper-utils.min.js" />
-    <None Include="Scripts\popper-utils.min.js.map" />
-    <None Include="Scripts\popper.js" />
-    <None Include="Scripts\popper.js.map" />
-    <None Include="Scripts\popper.min.js" />
-    <None Include="Scripts\popper.min.js.map" />
-    <None Include="Scripts\umd\popper-utils.js" />
-    <None Include="Scripts\umd\popper-utils.js.map" />
-    <None Include="Scripts\umd\popper-utils.min.js" />
-    <None Include="Scripts\umd\popper-utils.min.js.map" />
-    <None Include="Scripts\umd\popper.js" />
-    <None Include="Scripts\umd\popper.js.map" />
-    <None Include="Scripts\umd\popper.min.js" />
-    <None Include="Scripts\umd\popper.min.js.map" />
+    <Folder Include="Controllers" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
