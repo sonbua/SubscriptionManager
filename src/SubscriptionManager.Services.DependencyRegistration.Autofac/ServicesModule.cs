@@ -18,7 +18,11 @@ namespace SubscriptionManager.Services.DependencyRegistration.Autofac
                     new DocumentStore
                     {
                         Url = "http://localhost:8080",
-                        DefaultDatabase = "Test"
+                        DefaultDatabase = "Test",
+                        Conventions = new DocumentConvention
+                        {
+                            IdentityPartsSeparator = "-"
+                        }
                     }.Initialize())
                 .SingleInstance();
         }
