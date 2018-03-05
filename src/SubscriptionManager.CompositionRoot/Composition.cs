@@ -8,7 +8,7 @@ namespace SubscriptionManager.CompositionRoot
 {
     public static class Composition
     {
-        public static void Load(Action<IServiceProvider> actionOnRegistrationCompleted)
+        public static void Load(Action<ILifetimeScope> actionOnRegistrationCompleted)
         {
             var builder = new ContainerBuilder();
 
@@ -19,7 +19,7 @@ namespace SubscriptionManager.CompositionRoot
 
             var container = builder.Build();
 
-            actionOnRegistrationCompleted(new AutofacServiceProvider(container));
+            actionOnRegistrationCompleted(container);
         }
     }
 }

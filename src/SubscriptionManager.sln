@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Composi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Subscriptions", "SubscriptionManager.Subscriptions\SubscriptionManager.Subscriptions.csproj", "{E9926889-23A6-4CF4-AE76-413A12A0B9DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Web", "SubscriptionManager.Web\SubscriptionManager.Web.csproj", "{7E2BB69B-FC47-450F-B940-4A679922D6EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Services", "SubscriptionManager.Services\SubscriptionManager.Services.csproj", "{99C5224F-8B3F-40CE-9866-1C27C91ABF42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{E9926889-23A6-4CF4-AE76-413A12A0B9DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9926889-23A6-4CF4-AE76-413A12A0B9DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9926889-23A6-4CF4-AE76-413A12A0B9DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E2BB69B-FC47-450F-B940-4A679922D6EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2BB69B-FC47-450F-B940-4A679922D6EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2BB69B-FC47-450F-B940-4A679922D6EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2BB69B-FC47-450F-B940-4A679922D6EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
