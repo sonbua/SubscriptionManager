@@ -1,0 +1,10 @@
+{
+  "name": "SubscriptionManager.Web",
+  "description": "This is the package configuration file for SubscriptionManager.Web project.",
+  "version": "0.0.1",
+  "repository": "none",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "~2.5.13"
+  }
+}
