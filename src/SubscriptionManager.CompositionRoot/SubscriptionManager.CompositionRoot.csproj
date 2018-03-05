@@ -57,13 +57,13 @@
       <Project>{c9c413d6-63e7-4a66-9a8e-a35ff56e1656}</Project>
       <Name>R2.DependencyRegistration.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\R2.Net.Mail.DependencyRegistration.Autofac\R2.Net.Mail.DependencyRegistration.Autofac.csproj">
+    <ProjectReference Include="..\R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac\R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac.csproj">
       <Project>{a459b146-cbbd-4633-8452-69e6fc8070c9}</Project>
-      <Name>R2.Net.Mail.DependencyRegistration.Autofac</Name>
+      <Name>R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SubscriptionManager.DependencyRegistration.Autofac\SubscriptionManager.DependencyRegistration.Autofac.csproj">
+    <ProjectReference Include="..\SubscriptionManager.Services.DependencyRegistration.Autofac\SubscriptionManager.Services.DependencyRegistration.Autofac.csproj">
       <Project>{3f34a340-6cf6-48c5-ac40-0262d74a7b29}</Project>
-      <Name>SubscriptionManager.DependencyRegistration.Autofac</Name>
+      <Name>SubscriptionManager.Services.DependencyRegistration.Autofac</Name>
     </ProjectReference>
     <ProjectReference Include="..\SubscriptionManager.Subscriptions.DependencyRegistration.Autofac\SubscriptionManager.Subscriptions.DependencyRegistration.Autofac.csproj">
       <Project>{09f35d80-f887-46d2-8d1a-4fcac4d124b3}</Project>

@@ -2,7 +2,7 @@
 using R2.Net.Mail.SystemNetSmtp;
 using Raven.Client.Document;
 
-namespace SubscriptionManager.DependencyRegistration.Autofac
+namespace SubscriptionManager.Services.DependencyRegistration.Autofac
 {
     public class SubscriptionManagerModule : Module
     {

@@ -2,7 +2,7 @@
 using Autofac;
 using R2.DependencyRegistration.Autofac;
 using R2.Net.Mail.SystemNetSmtp.DependencyRegistration.Autofac;
-using SubscriptionManager.DependencyRegistration.Autofac;
+using SubscriptionManager.Services.DependencyRegistration.Autofac;
 using SubscriptionManager.Subscriptions.DependencyRegistration.Autofac;
 
 namespace SubscriptionManager.CompositionRoot

@@ -7,8 +7,8 @@
     <ProjectGuid>{3F34A340-6CF6-48C5-AC40-0262D74A7B29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SubscriptionManager.DependencyRegistration.Autofac</RootNamespace>
-    <AssemblyName>SubscriptionManager.DependencyRegistration.Autofac</AssemblyName>
+    <RootNamespace>SubscriptionManager.Services.DependencyRegistration.Autofac</RootNamespace>
+    <AssemblyName>SubscriptionManager.Services.DependencyRegistration.Autofac</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
