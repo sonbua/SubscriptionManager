@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Desktop", "SubscriptionManager.Desktop\SubscriptionManager.Desktop.csproj", "{81ED5125-3306-4372-B506-54E2635633D9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2", "R2\R2.csproj", "{86B6B3D4-08CF-4644-B415-15D5B44AC169}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R2.DependencyRegistration.Autofac", "R2.DependencyRegistration.Autofac\R2.DependencyRegistration.Autofac.csproj", "{C9C413D6-63E7-4A66-9A8E-A35FF56E1656}"
@@ -31,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{81ED5125-3306-4372-B506-54E2635633D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81ED5125-3306-4372-B506-54E2635633D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81ED5125-3306-4372-B506-54E2635633D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81ED5125-3306-4372-B506-54E2635633D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B6B3D4-08CF-4644-B415-15D5B44AC169}.Release|Any CPU.ActiveCfg = Release|Any CPU
