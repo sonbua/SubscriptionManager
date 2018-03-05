@@ -26,6 +26,7 @@ namespace SubscriptionManager.Subscriptions.AddSubscription
             using (var session = _store.OpenAsyncSession())
             {
                 await session.StoreAsync(subscription);
+                await session.SaveChangesAsync();
             }
         }
     }
