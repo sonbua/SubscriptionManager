@@ -1,8 +1,6 @@
-using System.Linq;
 using System.Threading.Tasks;
 using R2.Aspect.Validation;
 using Raven.Client;
-using Raven.Client.Linq;
 using SubscriptionManager.Subscriptions.SetExpired.Exception;
 
 namespace SubscriptionManager.Subscriptions.SetExpired.Rule
@@ -20,12 +18,9 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
         {
             using (var session = _store.OpenAsyncSession())
             {
-                var subscription =
-                    await session.Query<Subscription>()
-                        .Where(x => !x.IsDeleted)
-                        .FirstOrDefaultAsync(x => x.Id == command.SubscriptionId);
+                var subscription = await session.LoadAsync<Subscription>(command.SubscriptionId);
 
-                if (subscription == null)
+                if (subscription == null || subscription.IsDeleted)
                 {
                     throw new SubscriptionMustExistException();
                 }
