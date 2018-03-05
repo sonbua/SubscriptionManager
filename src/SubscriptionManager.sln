@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Web", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Services", "SubscriptionManager.Services\SubscriptionManager.Services.csproj", "{99C5224F-8B3F-40CE-9866-1C27C91ABF42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Subscriptions.DependencyRegistration.Autofac", "SubscriptionManager.Subscriptions.DependencyRegistration.Autofac\SubscriptionManager.Subscriptions.DependencyRegistration.Autofac.csproj", "{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C5224F-8B3F-40CE-9866-1C27C91ABF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B80B53-2AC1-4C2F-8503-1DAAE094A40F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
