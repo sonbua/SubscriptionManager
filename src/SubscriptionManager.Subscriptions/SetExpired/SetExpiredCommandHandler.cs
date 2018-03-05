@@ -4,7 +4,7 @@ using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.SetExpired
 {
-    public class SetExpiredCommandHandler : BaseCommandHandler<SetExpiredCommand>
+    public class SetExpiredCommandHandler : CommandHandler<SetExpiredCommand>
     {
         private readonly IDocumentStore _store;
 

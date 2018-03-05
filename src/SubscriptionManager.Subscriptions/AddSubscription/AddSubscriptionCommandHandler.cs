@@ -4,7 +4,7 @@ using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription
 {
-    public class AddSubscriptionCommandHandler : BaseCommandHandler<AddSubscriptionCommand>
+    public class AddSubscriptionCommandHandler : CommandHandler<AddSubscriptionCommand>
     {
         private readonly IDocumentStore _store;
 

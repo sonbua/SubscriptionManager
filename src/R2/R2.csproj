@@ -55,8 +55,8 @@
     <Compile Include="Aspect\Validation\IValidator.cs" />
     <Compile Include="Aspect\Validation\RequestValidationDecorator.cs" />
     <Compile Include="Aspect\Validation\RuleBasedValidator.cs" />
-    <Compile Include="BaseCommandHandler.cs" />
-    <Compile Include="BaseRequestHandler.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="RequestHandler.cs" />
     <Compile Include="DependencyInjection\ServiceProviderExtensions.cs" />
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IRequestHandler.cs" />
