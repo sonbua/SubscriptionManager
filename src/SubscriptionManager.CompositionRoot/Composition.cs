@@ -22,7 +22,7 @@ namespace SubscriptionManager.CompositionRoot
                 .RegisterModule<R2Module>()
                 .RegisterModule<R2NetMailModule>()
                 .RegisterModule<SubscriptionsModule>()
-                .RegisterModule<SubscriptionManagerModule>();
+                .RegisterModule<ServicesModule>();
 
             var container = builder.Build();
 

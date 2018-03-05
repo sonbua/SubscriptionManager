@@ -4,7 +4,7 @@ using Raven.Client.Document;
 
 namespace SubscriptionManager.Services.DependencyRegistration.Autofac
 {
-    public class SubscriptionManagerModule : Module
+    public class ServicesModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
