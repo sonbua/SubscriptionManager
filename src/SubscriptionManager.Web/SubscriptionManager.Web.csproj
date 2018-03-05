@@ -100,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content" />
-    <Folder Include="Models" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-grid.css" />
