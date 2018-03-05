@@ -20,6 +20,7 @@ namespace SubscriptionManager.Subscriptions.SetExpired
                 command.Subscription.IsDeleted = true;
 
                 await session.StoreAsync(command.Subscription);
+                await session.SaveChangesAsync();
             }
         }
     }
