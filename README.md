@@ -1,0 +1,14 @@
+# Subscription Manager
+## Setup Environment
+### Front-end
+* This is a single-page application powered by [Vue.js](https://vuejs.org)
+* SPA is located in `SubscriptionManager.Web` project, under `app` folder.
+* Run `npm install` on first checkout to install all Node modules
+* Run `npm run dev` to host this SPA at http://localhost:8080 (configurable via `app/config/index.js`)
+* Run `npm run build` to package this application (configurable via `app/config/index.js`)
+  * `Index.cshtml` in `Views\SubscriptionManager` folder
+  * JavaScript and CSS in `app\dist\static` folder
+### Back-end
+* Target _.NET Framework 4.5.2_.
+* All projects except `SubscriptionManager.Web` belong to back-end.
+* Design based on CQRS architecture and adopt use case driven approach.
