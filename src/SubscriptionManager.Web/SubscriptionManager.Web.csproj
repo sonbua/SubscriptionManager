@@ -98,7 +98,9 @@
     <Content Include="app\README.md" />
     <Content Include="app\src\App.vue" />
     <Content Include="app\src\assets\logo.png" />
-    <Content Include="app\src\components\HelloWorld.vue" />
+    <Content Include="app\src\components\Layout.vue" />
+    <Content Include="app\src\components\Main.vue" />
+    <Content Include="app\src\components\NavigationBar.vue" />
     <Content Include="app\src\main.js" />
     <Content Include="app\src\router\index.js" />
     <Content Include="app\static\.gitkeep" />
