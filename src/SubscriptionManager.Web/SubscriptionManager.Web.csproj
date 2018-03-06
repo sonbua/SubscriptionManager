@@ -76,6 +76,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\.babelrc" />
+    <Content Include="app\.editorconfig" />
+    <Content Include="app\.eslintignore" />
+    <Content Include="app\.eslintrc.js" />
+    <Content Include="app\.gitignore" />
+    <Content Include="app\.postcssrc.js" />
+    <Content Include="app\build\build.js" />
+    <Content Include="app\build\check-versions.js" />
+    <Content Include="app\build\logo.png" />
+    <Content Include="app\build\utils.js" />
+    <Content Include="app\build\vue-loader.conf.js" />
+    <Content Include="app\build\webpack.base.conf.js" />
+    <Content Include="app\build\webpack.dev.conf.js" />
+    <Content Include="app\build\webpack.prod.conf.js" />
+    <Content Include="app\config\dev.env.js" />
+    <Content Include="app\config\index.js" />
+    <Content Include="app\config\prod.env.js" />
+    <Content Include="app\index.html" />
+    <Content Include="app\package.json" />
+    <Content Include="app\README.md" />
+    <Content Include="app\src\App.vue" />
+    <Content Include="app\src\assets\logo.png" />
+    <Content Include="app\src\components\HelloWorld.vue" />
+    <Content Include="app\src\main.js" />
+    <Content Include="app\src\router\index.js" />
+    <Content Include="app\static\.gitkeep" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -83,38 +109,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\app\.babelrc" />
-    <Content Include="Scripts\app\.editorconfig" />
-    <Content Include="Scripts\app\.eslintignore" />
-    <Content Include="Scripts\app\.eslintrc.js" />
-    <Content Include="Scripts\app\.gitignore" />
-    <Content Include="Scripts\app\.postcssrc.js" />
-    <Content Include="Scripts\app\build\build.js" />
-    <Content Include="Scripts\app\build\check-versions.js" />
-    <Content Include="Scripts\app\build\logo.png" />
-    <Content Include="Scripts\app\build\utils.js" />
-    <Content Include="Scripts\app\build\vue-loader.conf.js" />
-    <Content Include="Scripts\app\build\webpack.base.conf.js" />
-    <Content Include="Scripts\app\build\webpack.dev.conf.js" />
-    <Content Include="Scripts\app\build\webpack.prod.conf.js" />
-    <Content Include="Scripts\app\config\dev.env.js" />
-    <Content Include="Scripts\app\config\index.js" />
-    <Content Include="Scripts\app\config\prod.env.js" />
-    <Content Include="Scripts\app\index.html" />
-    <Content Include="Scripts\app\package.json" />
-    <Content Include="Scripts\app\README.md" />
-    <Content Include="Scripts\app\src\App.vue" />
-    <Content Include="Scripts\app\src\assets\logo.png" />
-    <Content Include="Scripts\app\src\components\HelloWorld.vue" />
-    <Content Include="Scripts\app\src\main.js" />
-    <Content Include="Scripts\app\src\router\index.js" />
-    <Content Include="Scripts\app\static\.gitkeep" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\SubscriptionManager\Index.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\node_modules\html-entities" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

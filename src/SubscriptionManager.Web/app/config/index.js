@@ -45,12 +45,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../../../Views/SubscriptionManager/Index.cshtml'),
+    index: path.resolve(__dirname, '../../Views/SubscriptionManager/Index.cshtml'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/Scripts/app/dist/',
+    assetsPublicPath: '/app/dist/',
 
     /**
      * Source Maps
