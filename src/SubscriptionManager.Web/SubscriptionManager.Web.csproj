@@ -116,9 +116,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\node_modules\html-entities" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
