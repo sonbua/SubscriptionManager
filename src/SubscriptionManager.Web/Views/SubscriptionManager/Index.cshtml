@@ -1,20 +1,15 @@
-﻿@{
-    ViewBag.Title = "Home";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<div id="app">
-    {{ message }}
-</div>
-
-@section scripts
-{
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                message: 'Hello Vue.js!'
-            }
-        })
-    </script>
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Subscription Manager</title>
+    <link href="~/Scripts/app/dist/static/css/app.cca059254702f9ed953b7df749673cf4.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app"></div>
+    <script src="~/Scripts/app/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js"></script>
+    <script src="~/Scripts/app/dist/static/js/vendor.5973cf24864eecc78c48.js"></script>
+    <script src="~/Scripts/app/dist/static/js/app.f16ac5c624284d30f5af.js"></script>
+</body>
+</html>
