@@ -13,5 +13,7 @@
 * All projects except `SubscriptionManager.Web` belong to back-end.
 * Design based on CQRS architecture and adopt use case driven approach
 ### Database
-* Require [RavenDB](https://ravendb.net) version >=3.0 <4.0
-* Database name `Test`
+* Require [RavenDB](https://ravendb.net) server, version >=3.0 <4.0
+* Connection string (configurable via `SubscriptionManager.Services\Web.config`)
+  * Server address: http://localhost:8080
+  * Database name: `Test`
