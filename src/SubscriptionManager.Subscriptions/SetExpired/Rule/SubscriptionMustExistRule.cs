@@ -1,32 +1,42 @@
 using System.Threading.Tasks;
 using R2.Aspect.Validation;
 using Raven.Client;
+using SubscriptionManager.Subscriptions.DeleteSubscription;
 using SubscriptionManager.Subscriptions.SetExpired.Exception;
 
 namespace SubscriptionManager.Subscriptions.SetExpired.Rule
 {
-    public class SubscriptionMustExistRule : IValidationRule<SetExpiredCommand>
+    public class SubscriptionMustExistRule
+        : IValidationRule<SetExpiredCommand>,
+            IValidationRule<DeleteSubscriptionCommand>
     {
-        private readonly IDocumentStore _store;
+        private readonly IAsyncDocumentSession _session;
 
-        public SubscriptionMustExistRule(IDocumentStore store)
+        public SubscriptionMustExistRule(IAsyncDocumentSession session)
         {
-            _store = store;
+            _session = session;
         }
 
         public async Task TestAsync(SetExpiredCommand command)
         {
-            using (var session = _store.OpenAsyncSession())
+            command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
+        }
+
+        public async Task TestAsync(DeleteSubscriptionCommand command)
+        {
+            command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
+        }
+
+        private async Task<Subscription> GetSubscriptionAsync(string subscriptionId)
+        {
+            var subscription = await _session.LoadAsync<Subscription>(subscriptionId);
+
+            if (subscription == null || subscription.IsDeleted)
             {
-                var subscription = await session.LoadAsync<Subscription>(command.SubscriptionId);
-
-                if (subscription == null || subscription.IsDeleted)
-                {
-                    throw new SubscriptionMustExistException();
-                }
-
-                command.Subscription = subscription;
+                throw new SubscriptionMustExistException();
             }
+
+            return subscription;
         }
     }
 }

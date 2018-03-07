@@ -55,6 +55,9 @@
     <Compile Include="AddSubscription\Rule\DurationInMonthsMustBeGreaterThanOrEqualTo1Rule.cs" />
     <Compile Include="AddSubscription\Exception\EndDateMustBeInTheFutureException.cs" />
     <Compile Include="AddSubscription\Rule\EndDateMustBeInTheFutureRule.cs" />
+    <Compile Include="DeleteSubscription\DeleteSubscriptionCommand.cs" />
+    <Compile Include="DeleteSubscription\DeleteSubscriptionCommandHandler.cs" />
+    <Compile Include="DeleteSubscription\DeleteSubscriptionCommandValidator.cs" />
     <Compile Include="SetExpired\SetExpiredCommand.cs" />
     <Compile Include="SetExpired\SetExpiredCommandHandler.cs" />
     <Compile Include="SetExpired\SetExpiredCommandValidator.cs" />
