@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using R2;
 using Raven.Client;
@@ -17,7 +18,16 @@ namespace SubscriptionManager.Subscriptions.SetExpired
         {
             using (var session = _store.OpenAsyncSession())
             {
-                command.Subscription.IsDeleted = true;
+                var currentEndDate = command.Subscription.EndDate;
+
+                var expiredEndDate =
+                    new DateTime(
+                        currentEndDate.Year,
+                        currentEndDate.Month,
+                        currentEndDate.Day
+                    );
+
+                command.Subscription.EndDate = expiredEndDate;
 
                 await session.StoreAsync(command.Subscription);
                 await session.SaveChangesAsync();
