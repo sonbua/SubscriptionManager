@@ -18,13 +18,13 @@ namespace SubscriptionManager.Subscriptions.SetExpired
         {
             using (var session = _store.OpenAsyncSession())
             {
-                var currentEndDate = command.Subscription.EndDate;
+                var today = DateTime.Now;
 
                 var expiredEndDate =
                     new DateTime(
-                        currentEndDate.Year,
-                        currentEndDate.Month,
-                        currentEndDate.Day
+                        today.Year,
+                        today.Month,
+                        today.Day
                     );
 
                 command.Subscription.EndDate = expiredEndDate;
