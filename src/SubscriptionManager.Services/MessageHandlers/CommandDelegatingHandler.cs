@@ -19,6 +19,14 @@ namespace SubscriptionManager.Services.MessageHandlers
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
+            var allowedHttpMethods = new[] {HttpMethod.Post, HttpMethod.Put, HttpMethod.Delete};
+            var requestMethodIsInvalid = !allowedHttpMethods.Contains(request.Method);
+            
+            if (requestMethodIsInvalid)
+            {
+                throw new NotSupportedException($"{request.Method} request is not supported.");
+            }
+
             var commandName = request.GetRouteData().Values["command"].ToString();
             var requestInfo = CommandInfoMap[commandName];
 
