@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Configuration;
+using Autofac;
 using R2.Net.Mail.SystemNetSmtp;
 using Raven.Client.Document;
 
@@ -17,8 +18,8 @@ namespace SubscriptionManager.Services.DependencyRegistration.Autofac
                 .RegisterInstance(
                     new DocumentStore
                     {
-                        Url = "http://localhost:8080",
-                        DefaultDatabase = "Test",
+                        Url = ConfigurationManager.AppSettings["ravendb:serverUrl"],
+                        DefaultDatabase = ConfigurationManager.AppSettings["ravendb:databaseName"],
                         Conventions = new DocumentConvention
                         {
                             IdentityPartsSeparator = "-"
