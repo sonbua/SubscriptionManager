@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using R2;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription
 {
-    public class AddSubscriptionCommand
+    public class AddSubscriptionCommand : ICommand
     {
         [Required]
         public string FullName { get; set; }

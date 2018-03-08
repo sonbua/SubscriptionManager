@@ -13,7 +13,7 @@ namespace SubscriptionManager.Services.MessageHandlers
 {
     public class CommandDelegatingHandler : HttpMessageHandler
     {
-        private static readonly ConcurrentDictionary<string, CommandInfo> CommandInfoMap = GetCommandMap();
+        private static readonly ConcurrentDictionary<string, Type> CommandMap = GetCommandMap();
 
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request,
@@ -21,62 +21,53 @@ namespace SubscriptionManager.Services.MessageHandlers
         {
             var allowedHttpMethods = new[] {HttpMethod.Post, HttpMethod.Put, HttpMethod.Delete};
             var requestMethodIsInvalid = !allowedHttpMethods.Contains(request.Method);
-            
+
             if (requestMethodIsInvalid)
             {
                 throw new NotSupportedException($"{request.Method} request is not supported.");
             }
 
             var commandName = request.GetRouteData().Values["command"].ToString();
-            var requestInfo = CommandInfoMap[commandName];
+            var commandType = CommandMap[commandName];
 
             var requestBody = await request.Content.ReadAsStringAsync();
             var requestObjectString = "{" + requestBody + "}";
-            var requestObject = JsonConvert.DeserializeObject(requestObjectString, requestInfo.CommandType);
+            var requestObject = JsonConvert.DeserializeObject(requestObjectString, commandType);
 
             using (var scope = Container.Instance.BeginLifetimeScope())
             {
                 var requestProcessor = scope.Resolve<IRequestProcessor>();
 
-                var responseObject = await requestProcessor.ProcessAsync(requestObject, requestInfo.HandlerType);
+                await requestProcessor.ProcessCommandAsync(requestObject);
 
-                return request.CreateResponse(JsonConvert.SerializeObject(responseObject));
+                return request.CreateResponse();
             }
         }
 
-        private static ConcurrentDictionary<string, CommandInfo> GetCommandMap()
+        private static ConcurrentDictionary<string, Type> GetCommandMap()
         {
             using (var scope = Container.Instance.BeginLifetimeScope())
             {
-                var requestHandlerComponents = scope.Resolve<IEnumerable<IRequestHandler>>();
+                var commandHandlerComponents = scope.Resolve<IEnumerable<ICommandHandler>>();
 
-                var requestHandlerServices =
-                    requestHandlerComponents
+                var commandHandlerServices =
+                    commandHandlerComponents
                         .Select(x => x.GetType())
                         .Select(
                             x => x.GetInterfaces().First(
                                 i => i.IsGenericType &&
-                                     i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>)));
+                                    i.GetGenericTypeDefinition() == typeof(ICommandHandler<>)));
+
                 var result =
-                    requestHandlerServices
+                    commandHandlerServices
                         .Select(service => service.GetGenericArguments()[0])
-                        .Select(
-                            commandType => new
-                            {
-                                CommandName = commandType.Name.Replace("Command", string.Empty),
-                                CommandInfo = new CommandInfo {CommandType = commandType}
-                            }).ToDictionary(x => x.CommandName, x => x.CommandInfo);
+                        .ToDictionary(
+                            commandType => commandType.Name.Replace("Command", string.Empty),
+                            commandType => commandType
+                        );
 
-                return new ConcurrentDictionary<string, CommandInfo>(result);
+                return new ConcurrentDictionary<string, Type>(result);
             }
-        }
-
-        private class CommandInfo
-        {
-            public Type CommandType { get; set; }
-
-            public Type HandlerType =>
-                typeof(IRequestHandler<,>).MakeGenericType(CommandType, typeof(Nothing<>).MakeGenericType(CommandType));
         }
     }
 }

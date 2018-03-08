@@ -14,7 +14,7 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
         protected override void Load(ContainerBuilder builder)
         {
             var subscriptionsAssembly = Assembly.GetAssembly(typeof(Subscription));
-            
+
             builder
                 .RegisterAssemblyTypes(subscriptionsAssembly)
                 .AsClosedTypesOf(typeof(IPreprocessor<>))
@@ -37,29 +37,30 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
             builder
                 .RegisterAssemblyTypes(subscriptionsAssembly)
                 .AsClosedTypesOf(
-                    openGenericServiceType: typeof(IRequestHandler<,>),
-                    serviceKey: "requestHandler")
+                    openGenericServiceType: typeof(IQueryHandler<,>),
+                    serviceKey: "queryHandler")
                 .As<IRequestHandler>()
+                .As<IQueryHandler>()
                 .InstancePerLifetimeScope();
             builder
                 .RegisterGenericDecorator(
-                    decoratorType: typeof(RequestValidationDecorator<,>),
-                    decoratedServiceType: typeof(IRequestHandler<,>),
-                    fromKey: "requestHandler",
-                    toKey: "requestValidation")
+                    decoratorType: typeof(QueryValidationDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryHandler",
+                    toKey: "queryValidation")
                 .InstancePerLifetimeScope();
             builder
                 .RegisterGenericDecorator(
-                    decoratorType: typeof(RequestPreprocessingDecorator<,>),
-                    decoratedServiceType: typeof(IRequestHandler<,>),
-                    fromKey: "requestValidation",
-                    toKey: "requestPreprocessing")
+                    decoratorType: typeof(QueryPostprocessingDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryValidation",
+                    toKey: "queryPostprocessing")
                 .InstancePerLifetimeScope();
             builder
                 .RegisterGenericDecorator(
-                    decoratorType: typeof(RequestPostprocessingDecorator<,>),
-                    decoratedServiceType: typeof(IRequestHandler<,>),
-                    fromKey: "requestPreprocessing")
+                    decoratorType: typeof(QueryPreprocessingDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryPostprocessing")
                 .InstancePerLifetimeScope();
 
             builder
@@ -67,6 +68,7 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
                 .AsClosedTypesOf(
                     openGenericServiceType: typeof(ICommandHandler<>),
                     serviceKey: "commandHandler")
+                .As<IRequestHandler>()
                 .As<ICommandHandler>()
                 .InstancePerLifetimeScope();
             builder
