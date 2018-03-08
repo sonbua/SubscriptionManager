@@ -19,7 +19,16 @@ namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
         {
             return
                 await _session.Query<Subscription>()
-                    .Select(x => new SubscriptionDto())
+                    .Where(x => !x.IsDeleted)
+                    .Select(
+                        x => new SubscriptionDto
+                        {
+                            FullName = x.FullName,
+                            EmailAddress = x.EmailAddress,
+                            StartDate = x.StartDate,
+                            EndDate = x.EndDate
+                        })
+                    .OrderBy(x => x.FullName)
                     .ToListAsync();
         }
     }
