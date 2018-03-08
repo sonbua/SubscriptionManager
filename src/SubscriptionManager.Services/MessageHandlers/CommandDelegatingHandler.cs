@@ -31,14 +31,14 @@ namespace SubscriptionManager.Services.MessageHandlers
             var commandType = CommandMap[commandName];
 
             var requestBody = await request.Content.ReadAsStringAsync();
-            var requestObjectString = "{" + requestBody + "}";
-            var requestObject = JsonConvert.DeserializeObject(requestObjectString, commandType);
+            var commandObjectString = "{" + requestBody + "}";
+            var commandObject = JsonConvert.DeserializeObject(commandObjectString, commandType);
 
             using (var scope = Container.Instance.BeginLifetimeScope())
             {
                 var requestProcessor = scope.Resolve<IRequestProcessor>();
 
-                await requestProcessor.ProcessCommandAsync(requestObject);
+                await requestProcessor.ProcessCommandAsync(commandObject);
 
                 return request.CreateResponse();
             }
