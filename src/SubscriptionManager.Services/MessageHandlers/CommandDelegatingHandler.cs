@@ -54,7 +54,7 @@ namespace SubscriptionManager.Services.MessageHandlers
                     commandHandlerComponents
                         .Select(x => x.GetType())
                         .Select(
-                            x => x.GetInterfaces().First(
+                            x => x.GetInterfaces().Single(
                                 i => i.IsGenericType &&
                                     i.GetGenericTypeDefinition() == typeof(ICommandHandler<>)));
 
