@@ -68,7 +68,7 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IRequestHandler.cs" />
     <Compile Include="IRequestProcessor.cs" />
-    <Compile Include="IResponse.cs" />
+    <Compile Include="IRequest.cs" />
     <Compile Include="VoidReturn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="R2Exception.cs" />
