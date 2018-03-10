@@ -4,12 +4,8 @@ using R2.Aspect.Preprocessing;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription
 {
-    /// <summary>
-    /// Preprocesses <see cref="AddSubscriptionCommand"/>.
-    /// </summary>
     public class AddSubscriptionCommandPreprocessor : IPreprocessor<AddSubscriptionCommand>
     {
-        /// <inheritdoc />
         public Task ProcessAsync(AddSubscriptionCommand command)
         {
             command.StartDate = command.StartDate ?? DateTime.Now;

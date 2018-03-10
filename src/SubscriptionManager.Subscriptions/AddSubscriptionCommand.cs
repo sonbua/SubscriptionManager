@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using R2;
 
-namespace SubscriptionManager.Subscriptions.AddSubscription
+namespace SubscriptionManager.Subscriptions
 {
     /// <summary>
     /// Adds a new subscription.

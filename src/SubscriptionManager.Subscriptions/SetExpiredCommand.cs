@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using R2;
 
-namespace SubscriptionManager.Subscriptions.SetExpired
+namespace SubscriptionManager.Subscriptions
 {
     /// <summary>
     /// Sets a subscription to expired status.

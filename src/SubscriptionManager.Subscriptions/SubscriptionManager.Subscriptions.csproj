@@ -36,14 +36,6 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Abstractions, Version=3.5.5.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.5\lib\net45\Raven.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight, Version=3.5.5.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.5\lib\net45\Raven.Client.Lightweight.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -51,24 +43,10 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddSubscription\AddSubscriptionCommand.cs" />
-    <Compile Include="AddSubscription\AddSubscriptionCommandHandler.cs" />
-    <Compile Include="AddSubscription\AddSubscriptionCommandPreprocessor.cs" />
-    <Compile Include="AddSubscription\AddSubscriptionCommandValidator.cs" />
-    <Compile Include="AddSubscription\Exception\DurationInMonthsMustBeGreaterThanOrEqualTo1Exception.cs" />
-    <Compile Include="AddSubscription\Rule\DurationInMonthsMustBeGreaterThanOrEqualTo1Rule.cs" />
-    <Compile Include="AddSubscription\Exception\EndDateMustBeInTheFutureException.cs" />
-    <Compile Include="AddSubscription\Rule\EndDateMustBeInTheFutureRule.cs" />
-    <Compile Include="DeleteSubscription\DeleteSubscriptionCommand.cs" />
-    <Compile Include="DeleteSubscription\DeleteSubscriptionCommandHandler.cs" />
-    <Compile Include="DeleteSubscription\DeleteSubscriptionCommandValidator.cs" />
-    <Compile Include="GetAllSubscriptions\GetAllSubscriptionsQueryHandler.cs" />
-    <Compile Include="GetAllSubscriptions\GetAllSubscriptionsQuery.cs" />
-    <Compile Include="SetExpired\SetExpiredCommand.cs" />
-    <Compile Include="SetExpired\SetExpiredCommandHandler.cs" />
-    <Compile Include="SetExpired\SetExpiredCommandValidator.cs" />
-    <Compile Include="SetExpired\Exception\SubscriptionMustExistException.cs" />
-    <Compile Include="SetExpired\Rule\SubscriptionMustExistRule.cs" />
+    <Compile Include="AddSubscriptionCommand.cs" />
+    <Compile Include="DeleteSubscriptionCommand.cs" />
+    <Compile Include="GetAllSubscriptionsQuery.cs" />
+    <Compile Include="SetExpiredCommand.cs" />
     <Compile Include="Subscription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,7 +59,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

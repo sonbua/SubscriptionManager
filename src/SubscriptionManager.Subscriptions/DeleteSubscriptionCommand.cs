@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using R2;
 
-namespace SubscriptionManager.Subscriptions.DeleteSubscription
+namespace SubscriptionManager.Subscriptions
 {
     /// <summary>
     /// Deletes a subscription.

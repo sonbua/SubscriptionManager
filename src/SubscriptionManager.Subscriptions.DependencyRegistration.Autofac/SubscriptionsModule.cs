@@ -5,6 +5,7 @@ using R2.Aspect.Postprocessing;
 using R2.Aspect.Preprocessing;
 using R2.Aspect.Validation;
 using R2.DependencyRegistration.Autofac;
+using SubscriptionManager.Subscriptions.AddSubscription;
 using Module = Autofac.Module;
 
 namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
@@ -13,41 +14,53 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            var subscriptionsAssembly = Assembly.GetAssembly(typeof(Subscription));
+            LoadCommandsAndQueries(builder);
+
+            LoadHandlers(builder);
+        }
+
+        private static void LoadCommandsAndQueries(ContainerBuilder builder)
+        {
+            var modelAssembly = Assembly.GetAssembly(typeof(Subscription));
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(modelAssembly)
                 .AssignableTo<ICommand>()
                 .As<ICommand>()
                 .InstancePerDependency();
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(modelAssembly)
                 .AssignableTo<IQuery>()
                 .As<IQuery>()
                 .InstancePerDependency();
+        }
+
+        private static void LoadHandlers(ContainerBuilder builder)
+        {
+            var handlerAssembly = Assembly.GetAssembly(typeof(AddSubscriptionCommandHandler));
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(handlerAssembly)
                 .AsClosedTypesOf(typeof(IPreprocessor<>))
                 .As<IPreprocessor>()
                 .InstancePerLifetimeScope();
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(handlerAssembly)
                 .AsClosedTypesOf(typeof(IValidator<>))
                 .As<IValidator>()
                 .InstancePerLifetimeScope();
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(handlerAssembly)
                 .BasedOn(typeof(IValidationRule<>))
                 .AsSelf()
                 .As<IValidationRule>()
                 .InstancePerLifetimeScope();
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(handlerAssembly)
                 .AsClosedTypesOf(
                     openGenericServiceType: typeof(IQueryHandler<,>),
                     serviceKey: "queryHandler")
@@ -76,7 +89,7 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
                 .InstancePerLifetimeScope();
 
             builder
-                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .RegisterAssemblyTypes(handlerAssembly)
                 .AsClosedTypesOf(
                     openGenericServiceType: typeof(ICommandHandler<>),
                     serviceKey: "commandHandler")

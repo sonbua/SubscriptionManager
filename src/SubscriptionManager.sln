@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Service
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Subscriptions.DependencyRegistration.Autofac", "SubscriptionManager.Subscriptions.DependencyRegistration.Autofac\SubscriptionManager.Subscriptions.DependencyRegistration.Autofac.csproj", "{09F35D80-F887-46D2-8D1A-4FCAC4D124B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionManager.Subscriptions.Handlers", "SubscriptionManager.Subscriptions.Handlers\SubscriptionManager.Subscriptions.Handlers.csproj", "{559646E7-14E3-4853-8A89-9AFCB3DF6485}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{09F35D80-F887-46D2-8D1A-4FCAC4D124B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09F35D80-F887-46D2-8D1A-4FCAC4D124B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09F35D80-F887-46D2-8D1A-4FCAC4D124B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559646E7-14E3-4853-8A89-9AFCB3DF6485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559646E7-14E3-4853-8A89-9AFCB3DF6485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559646E7-14E3-4853-8A89-9AFCB3DF6485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559646E7-14E3-4853-8A89-9AFCB3DF6485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +105,6 @@ Global
 		{E9926889-23A6-4CF4-AE76-413A12A0B9DE} = {6A7C4C08-4C9A-4B63-92F7-F59E9665A887}
 		{99C5224F-8B3F-40CE-9866-1C27C91ABF42} = {73473133-9F10-410B-8588-5654DF20CDBE}
 		{09F35D80-F887-46D2-8D1A-4FCAC4D124B3} = {6A7C4C08-4C9A-4B63-92F7-F59E9665A887}
+		{559646E7-14E3-4853-8A89-9AFCB3DF6485} = {6A7C4C08-4C9A-4B63-92F7-F59E9665A887}
 	EndGlobalSection
 EndGlobal

@@ -5,20 +5,15 @@ using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.SetExpired
 {
-    /// <summary>
-    /// Handles <see cref="SetExpiredCommand"/>.
-    /// </summary>
     public class SetExpiredCommandHandler : CommandHandler<SetExpiredCommand>
     {
         private readonly IDocumentStore _store;
 
-        /// <inheritdoc />
         public SetExpiredCommandHandler(IDocumentStore store)
         {
             _store = store;
         }
 
-        /// <inheritdoc />
         protected override async Task HandleCommandAsync(SetExpiredCommand command)
         {
             using (var session = _store.OpenAsyncSession())

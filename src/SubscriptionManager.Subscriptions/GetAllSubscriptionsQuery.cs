@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using R2;
 
-namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
+namespace SubscriptionManager.Subscriptions
 {
     /// <summary>
     /// Get all subscriptions, including expired ones.
