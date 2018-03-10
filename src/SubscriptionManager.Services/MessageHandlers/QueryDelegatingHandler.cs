@@ -32,8 +32,7 @@ namespace SubscriptionManager.Services.MessageHandlers
             var queryName = request.GetRouteData().Values["query"].ToString();
             var queryInfo = QueryInfoMap[queryName];
 
-            var requestBody = await request.Content.ReadAsStringAsync();
-            var queryObjectString = "{" + requestBody + "}";
+            var queryObjectString = SerializationHelpers.ConvertQueryStringToJson(request.RequestUri.Query);
             var queryObject = JsonConvert.DeserializeObject(queryObjectString, queryInfo.QueryType);
 
             using (var scope = Container.Instance.BeginLifetimeScope())

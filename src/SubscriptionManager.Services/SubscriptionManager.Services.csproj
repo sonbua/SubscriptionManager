@@ -84,6 +84,7 @@
     <Compile Include="MessageHandlers\CommandDelegatingHandler.cs" />
     <Compile Include="MessageHandlers\QueryDelegatingHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializationHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
