@@ -1,6 +1,10 @@
 ﻿namespace R2
 {
-    public interface IQuery<TResult> : IRequest<TResult>
+    public interface IQuery
+    {
+    }
+
+    public interface IQuery<TResult> : IRequest<TResult>, IQuery
     {
     }
 }

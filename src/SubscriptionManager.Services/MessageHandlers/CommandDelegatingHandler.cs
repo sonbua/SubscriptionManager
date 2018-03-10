@@ -30,8 +30,7 @@ namespace SubscriptionManager.Services.MessageHandlers
             var commandName = request.GetRouteData().Values["command"].ToString();
             var commandType = CommandMap[commandName];
 
-            var requestBody = await request.Content.ReadAsStringAsync();
-            var commandObjectString = "{" + requestBody + "}";
+            var commandObjectString = await request.Content.ReadAsStringAsync();
             var commandObject = JsonConvert.DeserializeObject(commandObjectString, commandType);
 
             using (var scope = Container.Instance.BeginLifetimeScope())

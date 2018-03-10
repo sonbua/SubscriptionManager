@@ -6,22 +6,28 @@ using SubscriptionManager.Subscriptions.SetExpired.Exception;
 
 namespace SubscriptionManager.Subscriptions.SetExpired.Rule
 {
+    /// <summary>
+    /// Test whether subscription exists.
+    /// </summary>
     public class SubscriptionMustExistRule
         : IValidationRule<SetExpiredCommand>,
             IValidationRule<DeleteSubscriptionCommand>
     {
         private readonly IAsyncDocumentSession _session;
 
+        /// <inheritdoc />
         public SubscriptionMustExistRule(IAsyncDocumentSession session)
         {
             _session = session;
         }
 
+        /// <inheritdoc />
         public async Task TestAsync(SetExpiredCommand command)
         {
             command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
         }
 
+        /// <inheritdoc />
         public async Task TestAsync(DeleteSubscriptionCommand command)
         {
             command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);

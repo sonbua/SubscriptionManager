@@ -10,7 +10,7 @@ namespace SubscriptionManager.Services
         {
             Composition.Load(container => Container.SetContainer(container));
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configure(configuration => WebApiConfig.Register(configuration, Container.Instance));
         }
     }
 }

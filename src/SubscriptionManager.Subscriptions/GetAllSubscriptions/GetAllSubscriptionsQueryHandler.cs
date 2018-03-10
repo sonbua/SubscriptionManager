@@ -6,15 +6,20 @@ using Raven.Client.Linq;
 
 namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
 {
+    /// <summary>
+    /// Handles <see cref="GetAllSubscriptionsQuery"/>.
+    /// </summary>
     public class GetAllSubscriptionsQueryHandler : QueryHandler<GetAllSubscriptionsQuery, IList<SubscriptionDto>>
     {
         private readonly IAsyncDocumentSession _session;
 
+        /// <inheritdoc />
         public GetAllSubscriptionsQueryHandler(IAsyncDocumentSession session)
         {
             _session = session;
         }
 
+        /// <inheritdoc />
         protected override async Task<IList<SubscriptionDto>> HandleQueryAsync(GetAllSubscriptionsQuery query)
         {
             return

@@ -4,15 +4,20 @@ using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription
 {
+    /// <summary>
+    /// Handle <see cref="AddSubscriptionCommand"/>.
+    /// </summary>
     public class AddSubscriptionCommandHandler : CommandHandler<AddSubscriptionCommand>
     {
         private readonly IDocumentStore _store;
 
+        /// <inheritdoc />
         public AddSubscriptionCommandHandler(IDocumentStore store)
         {
             _store = store;
         }
 
+        /// <inheritdoc />
         protected override async Task HandleCommandAsync(AddSubscriptionCommand command)
         {
             var subscription = new Subscription

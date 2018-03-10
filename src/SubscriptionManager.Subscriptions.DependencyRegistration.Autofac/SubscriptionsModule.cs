@@ -17,6 +17,18 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
 
             builder
                 .RegisterAssemblyTypes(subscriptionsAssembly)
+                .AssignableTo<ICommand>()
+                .As<ICommand>()
+                .InstancePerDependency();
+
+            builder
+                .RegisterAssemblyTypes(subscriptionsAssembly)
+                .AssignableTo<IQuery>()
+                .As<IQuery>()
+                .InstancePerDependency();
+
+            builder
+                .RegisterAssemblyTypes(subscriptionsAssembly)
                 .AsClosedTypesOf(typeof(IPreprocessor<>))
                 .As<IPreprocessor>()
                 .InstancePerLifetimeScope();
