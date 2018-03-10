@@ -17,6 +17,11 @@ namespace SubscriptionManager.Subscriptions
     public class SubscriptionDto
     {
         /// <summary>
+        /// Subscription ID.
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
         /// Full name of those who subscribe to newsletter.
         /// </summary>
         public string FullName { get; set; }

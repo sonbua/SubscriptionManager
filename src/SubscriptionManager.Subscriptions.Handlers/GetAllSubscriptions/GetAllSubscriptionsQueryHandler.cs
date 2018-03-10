@@ -23,6 +23,7 @@ namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
                     .Select(
                         x => new SubscriptionDto
                         {
+                            Id = x.Id,
                             FullName = x.FullName,
                             EmailAddress = x.EmailAddress,
                             StartDate = x.StartDate,
