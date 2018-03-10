@@ -9,6 +9,7 @@ namespace SubscriptionManager.Subscriptions.AddSubscription
         public AddSubscriptionCommandValidator(IServiceProvider serviceProvider)
             : base(serviceProvider)
         {
+            AddRule<EmailAddressMustBeUniqueRule>();
             AddRule<DurationInMonthsMustBeGreaterThanOrEqualTo1Rule>();
             AddRule<EndDateMustBeInTheFutureRule>();
         }

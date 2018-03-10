@@ -50,8 +50,10 @@
     <Compile Include="AddSubscription\AddSubscriptionCommandPreprocessor.cs" />
     <Compile Include="AddSubscription\AddSubscriptionCommandValidator.cs" />
     <Compile Include="AddSubscription\Exception\DurationInMonthsMustBeGreaterThanOrEqualTo1Exception.cs" />
+    <Compile Include="AddSubscription\Exception\EmailAddressMustBeUniqueException.cs" />
     <Compile Include="AddSubscription\Exception\EndDateMustBeInTheFutureException.cs" />
     <Compile Include="AddSubscription\Rule\DurationInMonthsMustBeGreaterThanOrEqualTo1Rule.cs" />
+    <Compile Include="AddSubscription\Rule\EmailAddressMustBeUniqueRule.cs" />
     <Compile Include="AddSubscription\Rule\EndDateMustBeInTheFutureRule.cs" />
     <Compile Include="DeleteSubscription\DeleteSubscriptionCommandHandler.cs" />
     <Compile Include="DeleteSubscription\DeleteSubscriptionCommandValidator.cs" />
