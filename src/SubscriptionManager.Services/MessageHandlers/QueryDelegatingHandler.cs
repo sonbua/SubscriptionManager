@@ -15,7 +15,7 @@ namespace SubscriptionManager.Services.MessageHandlers
 {
     public class QueryDelegatingHandler : HttpMessageHandler
     {
-        private static readonly ConcurrentDictionary<string, QueryInfo> QueryInfoMap = GetQueryMap();
+        private static readonly ConcurrentDictionary<string, QueryInfo> QueryInfoMap = GetQueryInfoMap();
 
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request,
@@ -45,28 +45,28 @@ namespace SubscriptionManager.Services.MessageHandlers
             }
         }
 
-        private static ConcurrentDictionary<string, QueryInfo> GetQueryMap()
+        private static ConcurrentDictionary<string, QueryInfo> GetQueryInfoMap()
         {
             using (var scope = Container.Instance.BeginLifetimeScope())
             {
-                var queryHandlerComponents = scope.Resolve<IEnumerable<IQueryHandler>>();
+                var queryComponents = scope.Resolve<IEnumerable<IQuery>>();
 
-                var queryHandlerServices =
-                    queryHandlerComponents
-                        .Select(x => x.GetType())
-                        .Select(
-                            x => x.GetInterfaces().Single(
-                                i => i.IsGenericType &&
-                                    i.GetGenericTypeDefinition() == typeof(IQueryHandler<,>)));
+                var queryInfos =
+                    from component in queryComponents
+                    let componentType = component.GetType()
+                    let serviceType = componentType.GetInterfaces().Single(
+                        i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQuery<>)
+                    )
+                    let resultType = serviceType.GenericTypeArguments[0]
+                    let handlerType = typeof(IQueryHandler<,>).MakeGenericType(componentType, resultType)
+                    select new QueryInfo
+                    {
+                        QueryType = componentType,
+                        HandlerType = handlerType
+                    };
 
                 var result =
-                    queryHandlerServices
-                        .Select(
-                            service => new QueryInfo
-                            {
-                                QueryType = service.GenericTypeArguments[0],
-                                ResultType = service.GenericTypeArguments[1]
-                            })
+                    queryInfos
                         .ToDictionary(
                             queryInfo => queryInfo.QueryType.Name.Replace("Query", string.Empty),
                             queryInfo => queryInfo
@@ -78,14 +78,9 @@ namespace SubscriptionManager.Services.MessageHandlers
 
         private class QueryInfo
         {
-            private Type _handlerType;
-
             public Type QueryType { get; set; }
 
-            public Type ResultType { get; set; }
-
-            public Type HandlerType
-                => _handlerType ?? (_handlerType = typeof(IQueryHandler<,>).MakeGenericType(QueryType, ResultType));
+            public Type HandlerType { get; set; }
         }
     }
 }
