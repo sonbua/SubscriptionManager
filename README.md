@@ -12,6 +12,7 @@
 * Target _.NET Framework 4.5.2_
 * All projects except `SubscriptionManager.Web` belong to back-end.
 * Design based on CQRS architecture and adopt use case driven approach
+* Explore API at [API's root url]/swagger
 ### Database
 * Require [RavenDB](https://ravendb.net) server, version >=3.0 <4.0
 * Connection string (configurable via `SubscriptionManager.Services\Web.config`)
