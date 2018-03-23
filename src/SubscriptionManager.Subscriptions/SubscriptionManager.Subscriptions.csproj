@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AddSubscriptionCommand.cs" />
     <Compile Include="DeleteSubscriptionCommand.cs" />
+    <Compile Include="GetSubscriptionByIdQuery.cs" />
     <Compile Include="GetAllSubscriptionsQuery.cs" />
     <Compile Include="SetExpiredCommand.cs" />
     <Compile Include="Subscription.cs" />

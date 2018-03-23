@@ -7,7 +7,8 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
 {
     public class SubscriptionMustExistRule
         : IValidationRule<SetExpiredCommand>,
-            IValidationRule<DeleteSubscriptionCommand>
+            IValidationRule<DeleteSubscriptionCommand>,
+            IValidationRule<GetSubscriptionByIdQuery>
     {
         private readonly IAsyncDocumentSession _session;
 
@@ -24,6 +25,11 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
         public async Task TestAsync(DeleteSubscriptionCommand command)
         {
             command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
+        }
+
+        public async Task TestAsync(GetSubscriptionByIdQuery query)
+        {
+            query.Subscription = await GetSubscriptionAsync(query.SubscriptionId);
         }
 
         private async Task<Subscription> GetSubscriptionAsync(string subscriptionId)

@@ -58,6 +58,8 @@
     <Compile Include="DeleteSubscription\DeleteSubscriptionCommandHandler.cs" />
     <Compile Include="DeleteSubscription\DeleteSubscriptionCommandValidator.cs" />
     <Compile Include="GetAllSubscriptions\GetAllSubscriptionsQueryHandler.cs" />
+    <Compile Include="GetSubscriptionById\GetSubscriptionByIdQueryValidator.cs" />
+    <Compile Include="GetSubscriptionById\GetSubscriptionByIdQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetExpired\Exception\SubscriptionMustExistException.cs" />
     <Compile Include="SetExpired\Rule\SubscriptionMustExistRule.cs" />
