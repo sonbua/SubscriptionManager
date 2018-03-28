@@ -1,8 +1,10 @@
+using System;
 using System.Runtime.Serialization;
 using R2;
 
 namespace SubscriptionManager.Subscriptions.SetExpired.Exception
 {
+    [Serializable]
     public class SubscriptionMustExistException : R2Exception
     {
         public SubscriptionMustExistException()

@@ -1,8 +1,10 @@
+using System;
 using System.Runtime.Serialization;
 using R2;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription.Exception
 {
+    [Serializable]
     public class EndDateMustBeInTheFutureException : R2Exception
     {
         public EndDateMustBeInTheFutureException()

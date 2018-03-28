@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace R2
 {
+    [Serializable]
     public class R2Exception : Exception
     {
         public R2Exception()
