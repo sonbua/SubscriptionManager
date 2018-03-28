@@ -10,6 +10,7 @@ namespace SubscriptionManager.Subscriptions.SetExpired
             : base(serviceProvider)
         {
             AddRule<SubscriptionMustExistRule>();
+            AddRule<SubscriptionMustBeNotYetExpiredRule>();
         }
     }
 }
