@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using R2;
+using R2.Routing.AspNetCore;
 
 namespace SubscriptionManager.Subscriptions
 {
     /// <summary>
     /// Adds a new subscription.
     /// </summary>
+    [Route("subscription/add-subscription")]
     public class AddSubscriptionCommand : ICommand
     {
         /// <summary>

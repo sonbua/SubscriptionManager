@@ -44,7 +44,7 @@ namespace SubscriptionManager.Services
 
             config.Routes.MapHttpRoute(
                 name: "CommandApi",
-                routeTemplate: "commands/{command}",
+                routeTemplate: "commands/{*command}",
                 defaults: null,
                 constraints: null,
                 handler: new CommandDelegatingHandler()
@@ -52,7 +52,7 @@ namespace SubscriptionManager.Services
 
             config.Routes.MapHttpRoute(
                 name: "QueryApi",
-                routeTemplate: "queries/{query}",
+                routeTemplate: "queries/{*query}",
                 defaults: null,
                 constraints: null,
                 handler: new QueryDelegatingHandler()
@@ -67,36 +67,41 @@ namespace SubscriptionManager.Services
 
         private static void UseControllerlessApiDocumentation(HttpConfiguration config, ILifetimeScope lifetimeScope)
         {
-            var commandApiExplorer =
-                new ControllerlessApiExplorer(
-                    messageTypes: GetKnownCommandTypes(lifetimeScope),
-                    responseTypeSelector: type => typeof(void))
+            using (var scope = lifetimeScope.BeginLifetimeScope())
+            {
+                var routeMapper = scope.Resolve<ResponsibilityChain<Type, IEnumerable<string>>>();
+
+                var commandApiExplorer =
+                    new ControllerlessApiExplorer(
+                        messageTypes: GetKnownCommandTypes(lifetimeScope),
+                        responseTypeSelector: type => typeof(void))
+                    {
+                        ApiPrefix = string.Empty,
+                        ControllerName = "commands",
+                        ParameterName = "command",
+                        ActionNameSelector = commandType => routeMapper.Handle(commandType).First(),
+                    };
+
+                var queryApiExplorer = new ControllerlessApiExplorer(
+                    messageTypes: GetKnownQueryTypes(lifetimeScope),
+                    responseTypeSelector: DetermineResultTypes)
                 {
                     ApiPrefix = string.Empty,
-                    ControllerName = "commands",
-                    ParameterName = "command",
-                    ActionNameSelector = type => type.Name.Replace("Command", string.Empty),
+                    ControllerName = "queries",
+                    ParameterSourceSelector = type => ApiParameterSource.FromUri,
+                    HttpMethodSelector = type => HttpMethod.Get,
+                    ActionNameSelector = queryType => routeMapper.Handle(queryType).First(),
                 };
 
-            var queryApiExplorer = new ControllerlessApiExplorer(
-                messageTypes: GetKnownQueryTypes(lifetimeScope),
-                responseTypeSelector: DetermineResultTypes)
-            {
-                ApiPrefix = string.Empty,
-                ControllerName = "queries",
-                ParameterSourceSelector = type => ApiParameterSource.FromUri,
-                HttpMethodSelector = type => HttpMethod.Get,
-                ActionNameSelector = type => type.Name.Replace("Query", string.Empty)
-            };
-
-            config.Services.Replace(
-                typeof(IApiExplorer),
-                new CompositeApiExplorer(
-                    config.Services.GetApiExplorer(),
-                    commandApiExplorer,
-                    queryApiExplorer
-                )
-            );
+                config.Services.Replace(
+                    typeof(IApiExplorer),
+                    new CompositeApiExplorer(
+                        config.Services.GetApiExplorer(),
+                        commandApiExplorer,
+                        queryApiExplorer
+                    )
+                );
+            }
         }
 
         private static IEnumerable<Type> GetKnownCommandTypes(ILifetimeScope lifetimeScope)

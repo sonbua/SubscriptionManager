@@ -9,6 +9,8 @@ using R2.Aspect.Preprocessing;
 using R2.Aspect.Preprocessing.BuiltIn;
 using R2.Aspect.Validation;
 using R2.Aspect.Validation.BuiltIn;
+using R2.Routing;
+using R2.Routing.AspNetCore;
 using Module = Autofac.Module;
 
 namespace R2.DependencyRegistration.Autofac
@@ -17,6 +19,42 @@ namespace R2.DependencyRegistration.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder
+                .RegisterType<RouteProcessor>()
+                .As<IRouteProcessor>()
+                .InstancePerLifetimeScope();
+
+            builder
+                .RegisterType<GetRouteFromRouteAttribute>()
+                .SingleInstance();
+            builder
+                .RegisterType<GetRouteConventionallyFromCommandTypeName>()
+                .SingleInstance();
+            builder
+                .RegisterType<GetRouteConventionallyFromQueryTypeName>()
+                .SingleInstance();
+
+            builder
+                .Register(
+                    context => new CompositeResponsibilityChain<Type, IEnumerable<string>>(
+                        new ResponsibilityChain<Type, IEnumerable<string>>[]
+                        {
+                            context.Resolve<GetRouteFromRouteAttribute>(),
+                            context.Resolve<GetRouteConventionallyFromCommandTypeName>(),
+                            context.Resolve<GetRouteConventionallyFromQueryTypeName>(),
+                        }
+                    )
+                )
+                .As<ResponsibilityChain<Type, IEnumerable<string>>>()
+                .SingleInstance();
+
+            builder
+                .RegisterType<CommandRouteTable>()
+                .SingleInstance();
+            builder
+                .RegisterType<QueryRouteTable>()
+                .SingleInstance();
+
             builder
                 .RegisterType<RequestProcessor>()
                 .As<IRequestProcessor>()
