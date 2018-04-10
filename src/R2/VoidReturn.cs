@@ -1,7 +1,11 @@
 ﻿namespace R2
 {
-    public class VoidReturn
+    public sealed class VoidReturn
     {
         public static readonly VoidReturn Instance = new VoidReturn();
+
+        private VoidReturn()
+        {
+        }
     }
 }
