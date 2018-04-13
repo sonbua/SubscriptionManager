@@ -38,22 +38,6 @@ namespace SubscriptionManager.CompositionRoot
         /// <exception cref="T:Autofac.Core.DependencyResolutionException">
         /// Thrown if the object can't be resolved from the container.
         /// </exception>
-        public object GetRequiredService(Type serviceType)
-        {
-            return _componentContext.Resolve(serviceType);
-        }
-
-        /// <summary>Gets the service object of the specified type.</summary>
-        /// <param name="serviceType">
-        /// An object that specifies the type of service object to get.
-        /// </param>
-        /// <returns>
-        /// A service object of type <paramref name="serviceType" />; or <see langword="null" />
-        /// if there is no service object of type <paramref name="serviceType" />.
-        /// </returns>
-        public object GetService(Type serviceType)
-        {
-            return _componentContext.ResolveOptional(serviceType);
-        }
+        public object GetService(Type serviceType) => _componentContext.Resolve(serviceType);
     }
 }
