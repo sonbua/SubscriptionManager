@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
@@ -7,6 +8,7 @@ using System.Web.Http.Description;
 using Autofac;
 using Newtonsoft.Json.Serialization;
 using R2;
+using R2.Routing;
 using SolidServices.Controllerless.WebApi.Description;
 using SubscriptionManager.Services.MessageHandlers;
 
@@ -18,9 +20,7 @@ namespace SubscriptionManager.Services
         {
             UseCamelCaseJsonSerialization(config);
 
-#if DEBUG
             UseIndentJsonSerialization(config);
-#endif
 
             MapRoutes(config);
 
@@ -33,6 +33,7 @@ namespace SubscriptionManager.Services
                 new CamelCasePropertyNamesContractResolver();
         }
 
+        [Conditional("DEBUG")]
         private static void UseIndentJsonSerialization(HttpConfiguration config)
         {
             config.Formatters.JsonFormatter.Indent = true;
@@ -69,7 +70,7 @@ namespace SubscriptionManager.Services
         {
             using (var scope = lifetimeScope.BeginLifetimeScope())
             {
-                var routeMapper = scope.Resolve<ResponsibilityChain<Type, IEnumerable<string>>>();
+                var routeHandler = scope.Resolve<IRouteHandler>();
 
                 var commandApiExplorer =
                     new ControllerlessApiExplorer(
@@ -79,7 +80,7 @@ namespace SubscriptionManager.Services
                         ApiPrefix = string.Empty,
                         ControllerName = "commands",
                         ParameterName = "command",
-                        ActionNameSelector = commandType => routeMapper.Handle(commandType).First(),
+                        ActionNameSelector = commandType => routeHandler.Handle(commandType).First(),
                     };
 
                 var queryApiExplorer = new ControllerlessApiExplorer(
@@ -90,7 +91,7 @@ namespace SubscriptionManager.Services
                     ControllerName = "queries",
                     ParameterSourceSelector = type => ApiParameterSource.FromUri,
                     HttpMethodSelector = type => HttpMethod.Get,
-                    ActionNameSelector = queryType => routeMapper.Handle(queryType).First(),
+                    ActionNameSelector = queryType => routeHandler.Handle(queryType).First(),
                 };
 
                 config.Services.Replace(

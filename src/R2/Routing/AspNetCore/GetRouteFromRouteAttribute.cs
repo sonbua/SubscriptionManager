@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace R2.Routing.AspNetCore
 {
-    public class GetRouteFromRouteAttribute : ResponsibilityChain<Type, IEnumerable<string>>
+    public class GetRouteFromRouteAttribute : IRouteHandler
     {
         private IEnumerable<RouteAttribute> _routeAttributes;
 
@@ -14,14 +14,14 @@ namespace R2.Routing.AspNetCore
             _routeAttributes = Enumerable.Empty<RouteAttribute>();
         }
 
-        public override bool CanHandle(Type requestType)
+        public bool CanHandle(Type requestType)
         {
             _routeAttributes = requestType.GetCustomAttributes<RouteAttribute>(inherit: true);
 
             return _routeAttributes.Any();
         }
 
-        public override IEnumerable<string> Handle(Type requestType)
+        public IEnumerable<string> Handle(Type requestType)
         {
             foreach (var routeAttribute in _routeAttributes)
             {

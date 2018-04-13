@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using Autofac;
 using R2.Net.Mail.SystemNetSmtp;
+using R2.Routing;
 using Raven.Client;
 using Raven.Client.Document;
 
@@ -35,6 +36,11 @@ namespace SubscriptionManager.Services.DependencyRegistration.Autofac
                 .Register((context, parameters) => context.Resolve<IDocumentStore>().OpenAsyncSession())
                 .As<IAsyncDocumentSession>()
                 .InstancePerLifetimeScope();
+
+            builder
+                .RegisterType<RouteHandler>()
+                .As<IRouteHandler>()
+                .SingleInstance();
         }
     }
 }

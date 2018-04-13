@@ -97,6 +97,10 @@
       <Project>{86B6B3D4-08CF-4644-B415-15D5B44AC169}</Project>
       <Name>R2</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ResponsibilityChain\ResponsibilityChain.csproj">
+      <Project>{ea6ca43e-bdc7-4542-a838-df628f8e090a}</Project>
+      <Name>ResponsibilityChain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SubscriptionManager.CompositionRoot\SubscriptionManager.CompositionRoot.csproj">
       <Project>{7771e669-c5c4-4c66-a693-baf1fd098308}</Project>
       <Name>SubscriptionManager.CompositionRoot</Name>

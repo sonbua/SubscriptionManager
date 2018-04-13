@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,20 +6,18 @@ namespace R2.Routing
 {
     public class CommandRouteTable : IRouteTable
     {
-        private static ConcurrentDictionary<string, RouteEntry> _map;
+        private static ConcurrentDictionary<string, RouteEntry> _table;
 
         private readonly IEnumerable<ICommand> _commandComponents;
-        private readonly ResponsibilityChain<Type, IEnumerable<string>> _routeHandler;
+        private readonly IRouteHandler _routeHandler;
 
-        public CommandRouteTable(
-            IEnumerable<ICommand> commandComponents,
-            ResponsibilityChain<Type, IEnumerable<string>> routeHandler)
+        public CommandRouteTable(IEnumerable<ICommand> commandComponents, IRouteHandler routeHandler)
         {
             _commandComponents = commandComponents;
             _routeHandler = routeHandler;
         }
 
-        public ConcurrentDictionary<string, RouteEntry> Table => _map ?? (_map = InitializeTable());
+        public ConcurrentDictionary<string, RouteEntry> Table => _table ?? (_table = InitializeTable());
 
         private ConcurrentDictionary<string, RouteEntry> InitializeTable()
         {

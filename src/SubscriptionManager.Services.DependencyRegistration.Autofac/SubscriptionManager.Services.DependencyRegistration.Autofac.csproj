@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteHandler.cs" />
     <Compile Include="ServicesModule.cs" />
     <Compile Include="SystemNetSmtpMailServiceSettings.cs" />
   </ItemGroup>
@@ -62,6 +63,14 @@
     <ProjectReference Include="..\R2.Net.Mail.SystemNetSmtp\R2.Net.Mail.SystemNetSmtp.csproj">
       <Project>{95965c9b-51f3-40d9-a45c-cbc830fb1a96}</Project>
       <Name>R2.Net.Mail.SystemNetSmtp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\R2\R2.csproj">
+      <Project>{86b6b3d4-08cf-4644-b415-15d5b44ac169}</Project>
+      <Name>R2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResponsibilityChain\ResponsibilityChain.csproj">
+      <Project>{ea6ca43e-bdc7-4542-a838-df628f8e090a}</Project>
+      <Name>ResponsibilityChain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

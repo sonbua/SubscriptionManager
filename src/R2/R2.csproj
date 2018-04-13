@@ -72,15 +72,17 @@
     <Compile Include="IRequestHandler.cs" />
     <Compile Include="IRequestProcessor.cs" />
     <Compile Include="IRequest.cs" />
-    <Compile Include="ResponsibilityChain.cs" />
     <Compile Include="Routing\AspNetCore\RouteAttribute.cs" />
     <Compile Include="Routing\AspNetCore\GetRouteFromRouteAttribute.cs" />
     <Compile Include="Routing\CommandRouteTable.cs" />
-    <Compile Include="Routing\GetRouteConventionallyFromCommandTypeName.cs" />
+    <Compile Include="Routing\GetRouteConventionallyFromCommandTypeNameWithoutSuffix.cs" />
+    <Compile Include="Routing\GetRouteFromCommandTypeName.cs" />
+    <Compile Include="Routing\GetRouteFromQueryTypeName.cs" />
+    <Compile Include="Routing\IRouteHandler.cs" />
     <Compile Include="Routing\IRouteProcessor.cs" />
     <Compile Include="Routing\IRouteTable.cs" />
     <Compile Include="Routing\QueryRouteTable.cs" />
-    <Compile Include="Routing\GetRouteConventionallyFromQueryTypeName.cs" />
+    <Compile Include="Routing\GetRouteConventionallyFromQueryTypeNameWithoutSuffix.cs" />
     <Compile Include="Routing\RouteEntry.cs" />
     <Compile Include="Routing\RouteProcessor.cs" />
     <Compile Include="VoidReturn.cs" />
@@ -90,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResponsibilityChain\ResponsibilityChain.csproj">
+      <Project>{ea6ca43e-bdc7-4542-a838-df628f8e090a}</Project>
+      <Name>ResponsibilityChain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
