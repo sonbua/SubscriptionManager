@@ -1,16 +1,19 @@
 using System;
 using System.Threading.Tasks;
 using R2;
+using R2.Helper;
 using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.SetExpired
 {
     public class SetExpiredCommandHandler : CommandHandler<SetExpiredCommand>
     {
+        private readonly IRequestContext _requestContext;
         private readonly IDocumentStore _store;
 
-        public SetExpiredCommandHandler(IDocumentStore store)
+        public SetExpiredCommandHandler(IRequestContext requestContext, IDocumentStore store)
         {
+            _requestContext = requestContext;
             _store = store;
         }
 
@@ -27,9 +30,11 @@ namespace SubscriptionManager.Subscriptions.SetExpired
                         today.Day
                     );
 
-                command.Subscription.EndDate = expiredEndDate;
+                var subscription = _requestContext.TempData.CastTo<Subscription>();
 
-                await session.StoreAsync(command.Subscription);
+                subscription.EndDate = expiredEndDate;
+
+                await session.StoreAsync(subscription);
                 await session.SaveChangesAsync();
             }
         }

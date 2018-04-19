@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using R2;
 using R2.Aspect.Validation;
 using Raven.Client;
 using SubscriptionManager.Subscriptions.SetExpired.Exception;
@@ -10,26 +11,28 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
             IValidationRule<DeleteSubscriptionCommand>,
             IValidationRule<GetSubscriptionByIdQuery>
     {
+        private readonly IRequestContext _requestContext;
         private readonly IAsyncDocumentSession _session;
 
-        public SubscriptionMustExistRule(IAsyncDocumentSession session)
+        public SubscriptionMustExistRule(IRequestContext requestContext, IAsyncDocumentSession session)
         {
+            _requestContext = requestContext;
             _session = session;
         }
 
         public async Task TestAsync(SetExpiredCommand command)
         {
-            command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
+            _requestContext.TempData = await GetSubscriptionAsync(command.SubscriptionId);
         }
 
         public async Task TestAsync(DeleteSubscriptionCommand command)
         {
-            command.Subscription = await GetSubscriptionAsync(command.SubscriptionId);
+            _requestContext.TempData = await GetSubscriptionAsync(command.SubscriptionId);
         }
 
         public async Task TestAsync(GetSubscriptionByIdQuery query)
         {
-            query.Subscription = await GetSubscriptionAsync(query.SubscriptionId);
+            _requestContext.TempData = await GetSubscriptionAsync(query.SubscriptionId);
         }
 
         private async Task<Subscription> GetSubscriptionAsync(string subscriptionId)
