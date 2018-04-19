@@ -15,15 +15,16 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
         {
             _requestContext = requestContext;
         }
+
         public Task TestAsync(SetExpiredCommand command)
         {
             var subscription = _requestContext.TempData.CastTo<Subscription>();
-            
+
             if (subscription.EndDate <= DateTime.Now)
             {
                 throw new SubscriptionMustBeNotYetExpiredException();
             }
-            
+
             return Task.FromResult(0);
         }
     }
