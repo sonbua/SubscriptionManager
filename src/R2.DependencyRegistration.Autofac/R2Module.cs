@@ -5,6 +5,7 @@ using System.Reflection;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Features.Scanning;
+using R2.Aspect.Postprocessing;
 using R2.Aspect.Preprocessing;
 using R2.Aspect.Preprocessing.BuiltIn;
 using R2.Aspect.Validation;
@@ -59,6 +60,41 @@ namespace R2.DependencyRegistration.Autofac
             builder
                 .RegisterGeneric(typeof(DataAnnotationValidationMustPassRule<>))
                 .SingleInstance();
+
+            builder
+                .RegisterGenericDecorator(
+                    decoratorType: typeof(QueryValidationDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryHandler",
+                    toKey: "queryValidation")
+                .InstancePerLifetimeScope();
+            builder
+                .RegisterGenericDecorator(
+                    decoratorType: typeof(QueryPostprocessingDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryValidation",
+                    toKey: "queryPostprocessing")
+                .InstancePerLifetimeScope();
+            builder
+                .RegisterGenericDecorator(
+                    decoratorType: typeof(QueryPreprocessingDecorator<,>),
+                    decoratedServiceType: typeof(IQueryHandler<,>),
+                    fromKey: "queryPostprocessing")
+                .InstancePerLifetimeScope();
+
+            builder
+                .RegisterGenericDecorator(
+                    decoratorType: typeof(CommandValidationDecorator<>),
+                    decoratedServiceType: typeof(ICommandHandler<>),
+                    fromKey: "commandHandler",
+                    toKey: "commandValidation")
+                .InstancePerLifetimeScope();
+            builder
+                .RegisterGenericDecorator(
+                    decoratorType: typeof(CommandPreprocessingDecorator<>),
+                    decoratedServiceType: typeof(ICommandHandler<>),
+                    fromKey: "commandValidation")
+                .InstancePerLifetimeScope();
         }
     }
 

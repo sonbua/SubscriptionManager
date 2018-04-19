@@ -67,26 +67,6 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
                 .As<IRequestHandler>()
                 .As<IQueryHandler>()
                 .InstancePerLifetimeScope();
-            builder
-                .RegisterGenericDecorator(
-                    decoratorType: typeof(QueryValidationDecorator<,>),
-                    decoratedServiceType: typeof(IQueryHandler<,>),
-                    fromKey: "queryHandler",
-                    toKey: "queryValidation")
-                .InstancePerLifetimeScope();
-            builder
-                .RegisterGenericDecorator(
-                    decoratorType: typeof(QueryPostprocessingDecorator<,>),
-                    decoratedServiceType: typeof(IQueryHandler<,>),
-                    fromKey: "queryValidation",
-                    toKey: "queryPostprocessing")
-                .InstancePerLifetimeScope();
-            builder
-                .RegisterGenericDecorator(
-                    decoratorType: typeof(QueryPreprocessingDecorator<,>),
-                    decoratedServiceType: typeof(IQueryHandler<,>),
-                    fromKey: "queryPostprocessing")
-                .InstancePerLifetimeScope();
 
             builder
                 .RegisterAssemblyTypes(handlerAssembly)
@@ -95,19 +75,6 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
                     serviceKey: "commandHandler")
                 .As<IRequestHandler>()
                 .As<ICommandHandler>()
-                .InstancePerLifetimeScope();
-            builder
-                .RegisterGenericDecorator(
-                    decoratorType: typeof(CommandValidationDecorator<>),
-                    decoratedServiceType: typeof(ICommandHandler<>),
-                    fromKey: "commandHandler",
-                    toKey: "commandValidation")
-                .InstancePerLifetimeScope();
-            builder
-                .RegisterGenericDecorator(
-                    decoratorType: typeof(CommandPreprocessingDecorator<>),
-                    decoratedServiceType: typeof(ICommandHandler<>),
-                    fromKey: "commandValidation")
                 .InstancePerLifetimeScope();
         }
     }
