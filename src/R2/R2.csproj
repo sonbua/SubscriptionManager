@@ -62,10 +62,13 @@
     <Compile Include="Aspect\Validation\RequestValidationDecorator.cs" />
     <Compile Include="Aspect\Validation\RuleBasedValidator.cs" />
     <Compile Include="CommandHandler.cs" />
+    <Compile Include="Helper\ObjectExtensions.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="IQueryHandler.cs" />
+    <Compile Include="IRequestContext.cs" />
     <Compile Include="QueryHandler.cs" />
+    <Compile Include="RequestContext.cs" />
     <Compile Include="RequestHandler.cs" />
     <Compile Include="DependencyInjection\ServiceProviderExtensions.cs" />
     <Compile Include="ICommandHandler.cs" />

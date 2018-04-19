@@ -19,6 +19,23 @@ namespace R2.DependencyRegistration.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            LoadRouteProcessorAndHandler(builder);
+
+            LoadRequestProcessor(builder);
+
+            LoadBuiltInPreprocessor(builder);
+
+            LoadBuiltInValidatorAndValidationRules(builder);
+
+            LoadQueryHandlerDecorators(builder);
+
+            LoadCommandHandlerDecorators(builder);
+
+            LoadRequestContext(builder);
+        }
+
+        private static void LoadRouteProcessorAndHandler(ContainerBuilder builder)
+        {
             var targetAssembly = Assembly.GetAssembly(typeof(IRouteProcessor));
 
             builder
@@ -38,17 +55,26 @@ namespace R2.DependencyRegistration.Autofac
             builder
                 .RegisterType<QueryRouteTable>()
                 .SingleInstance();
+        }
 
+        private static void LoadRequestProcessor(ContainerBuilder builder)
+        {
             builder
                 .RegisterType<RequestProcessor>()
                 .As<IRequestProcessor>()
                 .InstancePerLifetimeScope();
+        }
 
+        private static void LoadBuiltInPreprocessor(ContainerBuilder builder)
+        {
             builder
                 .RegisterGeneric(typeof(TrimStringPreprocessor<>))
                 .As(typeof(IPreprocessor<>))
                 .SingleInstance();
+        }
 
+        private static void LoadBuiltInValidatorAndValidationRules(ContainerBuilder builder)
+        {
             builder
                 .RegisterGeneric(typeof(BuiltInValidator<>))
                 .As(typeof(IValidator<>))
@@ -60,7 +86,10 @@ namespace R2.DependencyRegistration.Autofac
             builder
                 .RegisterGeneric(typeof(DataAnnotationValidationMustPassRule<>))
                 .SingleInstance();
+        }
 
+        private static void LoadQueryHandlerDecorators(ContainerBuilder builder)
+        {
             builder
                 .RegisterGenericDecorator(
                     decoratorType: typeof(QueryValidationDecorator<,>),
@@ -81,7 +110,10 @@ namespace R2.DependencyRegistration.Autofac
                     decoratedServiceType: typeof(IQueryHandler<,>),
                     fromKey: "queryPostprocessing")
                 .InstancePerLifetimeScope();
+        }
 
+        private static void LoadCommandHandlerDecorators(ContainerBuilder builder)
+        {
             builder
                 .RegisterGenericDecorator(
                     decoratorType: typeof(CommandValidationDecorator<>),
@@ -94,6 +126,14 @@ namespace R2.DependencyRegistration.Autofac
                     decoratorType: typeof(CommandPreprocessingDecorator<>),
                     decoratedServiceType: typeof(ICommandHandler<>),
                     fromKey: "commandValidation")
+                .InstancePerLifetimeScope();
+        }
+
+        private static void LoadRequestContext(ContainerBuilder builder)
+        {
+            builder
+                .RegisterType<RequestContext>()
+                .As<IRequestContext>()
                 .InstancePerLifetimeScope();
         }
     }
