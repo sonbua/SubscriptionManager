@@ -2,41 +2,36 @@ using System;
 using System.Threading.Tasks;
 using R2;
 using R2.Helper;
-using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.SetExpired
 {
     public class SetExpiredCommandHandler : CommandHandler<SetExpiredCommand>
     {
         private readonly IRequestContext _requestContext;
-        private readonly IDocumentStore _store;
+        private readonly ISubscriptionRepository _repository;
 
-        public SetExpiredCommandHandler(IRequestContext requestContext, IDocumentStore store)
+        public SetExpiredCommandHandler(IRequestContext requestContext, ISubscriptionRepository repository)
         {
             _requestContext = requestContext;
-            _store = store;
+            _repository = repository;
         }
 
         protected override async Task HandleCommandAsync(SetExpiredCommand command)
         {
-            using (var session = _store.OpenAsyncSession())
-            {
-                var today = DateTime.Now;
+            var today = DateTime.Now;
 
-                var expiredEndDate =
-                    new DateTime(
-                        today.Year,
-                        today.Month,
-                        today.Day
-                    );
+            var expiredEndDate =
+                new DateTime(
+                    today.Year,
+                    today.Month,
+                    today.Day
+                );
 
-                var subscription = _requestContext.TempData.CastTo<Subscription>();
+            var subscription = _requestContext.TempData.CastTo<Subscription>();
 
-                subscription.EndDate = expiredEndDate;
+            subscription.EndDate = expiredEndDate;
 
-                await session.StoreAsync(subscription);
-                await session.SaveChangesAsync();
-            }
+            await _repository.UpdateSubscriptionAsync(subscription);
         }
     }
 }

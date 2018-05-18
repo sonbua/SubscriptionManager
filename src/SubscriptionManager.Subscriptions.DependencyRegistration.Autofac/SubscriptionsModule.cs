@@ -5,6 +5,7 @@ using R2.Aspect.Preprocessing;
 using R2.Aspect.Validation;
 using R2.DependencyRegistration.Autofac;
 using SubscriptionManager.Subscriptions.AddSubscription;
+using SubscriptionManager.Subscriptions.Repository.RavenDB;
 using Module = Autofac.Module;
 
 namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
@@ -16,6 +17,8 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
             LoadCommandsAndQueries(builder);
 
             LoadHandlers(builder);
+
+            LoadRepository(builder);
         }
 
         private static void LoadCommandsAndQueries(ContainerBuilder builder)
@@ -74,6 +77,14 @@ namespace SubscriptionManager.Subscriptions.DependencyRegistration.Autofac
                     serviceKey: "commandHandler")
                 .As<IRequestHandler>()
                 .As<ICommandHandler>()
+                .InstancePerLifetimeScope();
+        }
+
+        private void LoadRepository(ContainerBuilder builder)
+        {
+            builder
+                .RegisterType<RavenDbSubscriptionRepository>()
+                .As<ISubscriptionRepository>()
                 .InstancePerLifetimeScope();
         }
     }

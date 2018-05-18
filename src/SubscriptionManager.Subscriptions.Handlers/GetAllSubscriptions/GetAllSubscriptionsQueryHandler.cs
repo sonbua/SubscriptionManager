@@ -1,25 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using R2;
-using Raven.Client;
-using Raven.Client.Linq;
 
 namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
 {
     public class GetAllSubscriptionsQueryHandler : QueryHandler<GetAllSubscriptionsQuery, IList<SubscriptionDto>>
     {
-        private readonly IAsyncDocumentSession _session;
+        private readonly ISubscriptionRepository _repository;
 
-        public GetAllSubscriptionsQueryHandler(IAsyncDocumentSession session)
+        public GetAllSubscriptionsQueryHandler(ISubscriptionRepository repository)
         {
-            _session = session;
+            _repository = repository;
         }
 
         protected override async Task<IList<SubscriptionDto>> HandleQueryAsync(GetAllSubscriptionsQuery query)
         {
+            var subscriptions = await _repository.GetAllSubscriptionsAsync();
+
             return
-                await _session.Query<Subscription>()
-                    .Where(x => !x.IsDeleted)
+                subscriptions
                     .Select(
                         x => new SubscriptionDto
                         {
@@ -30,7 +30,7 @@ namespace SubscriptionManager.Subscriptions.GetAllSubscriptions
                             EndDate = x.EndDate
                         })
                     .OrderBy(x => x.FullName)
-                    .ToListAsync();
+                    .ToList();
         }
     }
 }

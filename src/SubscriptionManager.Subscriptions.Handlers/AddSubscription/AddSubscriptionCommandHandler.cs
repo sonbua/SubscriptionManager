@@ -1,16 +1,15 @@
 ﻿using System.Threading.Tasks;
 using R2;
-using Raven.Client;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription
 {
     public class AddSubscriptionCommandHandler : CommandHandler<AddSubscriptionCommand>
     {
-        private readonly IDocumentStore _store;
+        private readonly ISubscriptionRepository _repository;
 
-        public AddSubscriptionCommandHandler(IDocumentStore store)
+        public AddSubscriptionCommandHandler(ISubscriptionRepository repository)
         {
-            _store = store;
+            _repository = repository;
         }
 
         protected override async Task HandleCommandAsync(AddSubscriptionCommand command)
@@ -23,11 +22,7 @@ namespace SubscriptionManager.Subscriptions.AddSubscription
                 EndDate = command.StartDate.Value.AddMonths(command.DurationInMonths.Value),
             };
 
-            using (var session = _store.OpenAsyncSession())
-            {
-                await session.StoreAsync(subscription);
-                await session.SaveChangesAsync();
-            }
+            await _repository.AddSubscriptionAsync(subscription);
         }
     }
 }

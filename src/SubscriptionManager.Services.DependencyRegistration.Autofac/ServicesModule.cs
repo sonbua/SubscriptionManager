@@ -29,10 +29,6 @@ namespace SubscriptionManager.Services.DependencyRegistration.Autofac
                     }.Initialize())
                 .SingleInstance();
             builder
-                .Register((context, parameters) => context.Resolve<IDocumentStore>().OpenSession())
-                .As<IDocumentSession>()
-                .InstancePerLifetimeScope();
-            builder
                 .Register((context, parameters) => context.Resolve<IDocumentStore>().OpenAsyncSession())
                 .As<IAsyncDocumentSession>()
                 .InstancePerLifetimeScope();

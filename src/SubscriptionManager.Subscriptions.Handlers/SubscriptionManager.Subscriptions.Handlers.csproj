@@ -34,16 +34,8 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Raven.Abstractions, Version=3.5.5.0, Culture=neutral, PublicKeyToken=37f41c7f99471593">
-      <HintPath>..\packages\RavenDB.Client.3.5.5\lib\net45\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight, Version=3.5.5.0, Culture=neutral, PublicKeyToken=37f41c7f99471593">
-      <HintPath>..\packages\RavenDB.Client.3.5.5\lib\net45\Raven.Client.Lightweight.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddSubscription\AddSubscriptionCommandHandler.cs" />
@@ -67,6 +59,7 @@
     <Compile Include="SetExpired\Rule\SubscriptionMustExistRule.cs" />
     <Compile Include="SetExpired\SetExpiredCommandHandler.cs" />
     <Compile Include="SetExpired\SetExpiredCommandValidator.cs" />
+    <Compile Include="ISubscriptionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R2\R2.csproj">
@@ -77,9 +70,6 @@
       <Project>{e9926889-23a6-4cf4-ae76-413a12a0b9de}</Project>
       <Name>SubscriptionManager.Subscriptions</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

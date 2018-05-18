@@ -1,34 +1,28 @@
 using System.Linq;
 using System.Threading.Tasks;
 using R2.Aspect.Validation;
-using Raven.Client;
-using Raven.Client.Linq;
 using SubscriptionManager.Subscriptions.AddSubscription.Exception;
 
 namespace SubscriptionManager.Subscriptions.AddSubscription.Rule
 {
     public class EmailAddressMustBeUniqueRule : IValidationRule<AddSubscriptionCommand>
     {
-        private readonly IDocumentSession _session;
+        private readonly ISubscriptionRepository _repository;
 
-        public EmailAddressMustBeUniqueRule(IDocumentSession session)
+        public EmailAddressMustBeUniqueRule(ISubscriptionRepository repository)
         {
-            _session = session;
+            _repository = repository;
         }
 
-        public Task TestAsync(AddSubscriptionCommand command)
+        public async Task TestAsync(AddSubscriptionCommand command)
         {
-            var sameEmailExists =
-                _session.Query<Subscription>()
-                    .Where(x => !x.IsDeleted)
-                    .Any(x => x.EmailAddress == command.EmailAddress);
+            var subscriptionsByEmail = await _repository.GetSubscriptionsByEmailAsync(command.EmailAddress);
+            var sameEmailExists = subscriptionsByEmail.Any();
 
             if (sameEmailExists)
             {
                 throw new EmailAddressMustBeUniqueException();
             }
-
-            return Task.FromResult(0);
         }
     }
 }

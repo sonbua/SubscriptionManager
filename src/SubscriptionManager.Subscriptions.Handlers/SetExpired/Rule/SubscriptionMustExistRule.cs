@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using R2;
 using R2.Aspect.Validation;
-using Raven.Client;
 using SubscriptionManager.Subscriptions.SetExpired.Exception;
 
 namespace SubscriptionManager.Subscriptions.SetExpired.Rule
@@ -12,12 +11,12 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
             IValidationRule<GetSubscriptionByIdQuery>
     {
         private readonly IRequestContext _requestContext;
-        private readonly IAsyncDocumentSession _session;
+        private readonly ISubscriptionRepository _repository;
 
-        public SubscriptionMustExistRule(IRequestContext requestContext, IAsyncDocumentSession session)
+        public SubscriptionMustExistRule(IRequestContext requestContext, ISubscriptionRepository repository)
         {
             _requestContext = requestContext;
-            _session = session;
+            _repository = repository;
         }
 
         public async Task TestAsync(SetExpiredCommand command)
@@ -37,7 +36,7 @@ namespace SubscriptionManager.Subscriptions.SetExpired.Rule
 
         private async Task<Subscription> GetSubscriptionAsync(string subscriptionId)
         {
-            var subscription = await _session.LoadAsync<Subscription>(subscriptionId);
+            var subscription = await _repository.FindSubscriptionByIdAsync(subscriptionId);
 
             if (subscription == null || subscription.IsDeleted)
             {
